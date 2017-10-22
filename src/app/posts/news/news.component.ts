@@ -8,7 +8,7 @@ import { PostsService } from '../posts.service';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-  constructor(postsService: PostsService) {}
+  constructor(public postsService: PostsService) {}
 
   ngOnInit() {}
 }
