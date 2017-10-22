@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+
+@mixin nmhne-posts-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $foreground: map-get($theme, foreground);
+
+  nmhne-post {
+    h2 {
+      a {
+        color: mat-color($foreground, text);
+
+        &:hover {
+          color: mat-color($primary);
+        }
+      }
+    }
+  }
+}
