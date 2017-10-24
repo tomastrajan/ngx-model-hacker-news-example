@@ -19,6 +19,46 @@ const routes: Routes = [
     resolve: {
       posts: PostsService
     }
+  },
+  {
+    path: 'newest',
+    component: NewsComponent,
+    data: {
+      title: 'Newest'
+    },
+    resolve: {
+      posts: PostsService
+    }
+  },
+  {
+    path: 'ask',
+    component: NewsComponent,
+    data: {
+      title: 'Ask'
+    },
+    resolve: {
+      posts: PostsService
+    }
+  },
+  {
+    path: 'show',
+    component: NewsComponent,
+    data: {
+      title: 'Show'
+    },
+    resolve: {
+      posts: PostsService
+    }
+  },
+  {
+    path: 'job',
+    component: NewsComponent,
+    data: {
+      title: 'Job'
+    },
+    resolve: {
+      posts: PostsService
+    }
   }
 ];
 

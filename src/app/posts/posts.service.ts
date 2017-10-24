@@ -13,6 +13,14 @@ import 'rxjs/add/operator/mergeMap';
 
 import { BackendService } from '@app/core';
 
+const RESOURCES = {
+  news: 'topstories.json',
+  newest: 'newstories.json',
+  show: 'showstories.json',
+  job: 'jobstories.json',
+  ask: 'askstories.json'
+};
+
 @Injectable()
 export class PostsService implements Resolve<boolean> {
   private model: Model<Post[]>;
@@ -31,7 +39,7 @@ export class PostsService implements Resolve<boolean> {
     state: RouterStateSnapshot
   ): boolean | Observable<boolean> | Promise<boolean> {
     return this.backend
-      .get('topstories.json')
+      .get(RESOURCES[route.routeConfig.path])
       .mergeMap((ids: any) =>
         Observable.forkJoin(
           ids

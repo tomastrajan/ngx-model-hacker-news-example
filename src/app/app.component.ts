@@ -11,7 +11,13 @@ import { environment as env } from '@env/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'nmhne';
+  menu = [
+    { title: 'Top', path: 'posts/news' },
+    { title: 'New', path: 'posts/newest' },
+    { title: 'Show', path: 'posts/show' },
+    { title: 'Ask', path: 'posts/ask' },
+    { title: 'Job', path: 'posts/job' }
+  ];
 
   constructor(private router: Router, private titleService: Title) {}
 
