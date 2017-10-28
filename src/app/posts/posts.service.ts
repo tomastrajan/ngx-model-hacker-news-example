@@ -6,10 +6,10 @@ import {
 } from '@angular/router';
 import { ModelFactory, Model } from 'ngx-model';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/forkJoin';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/mapTo';
-import 'rxjs/add/operator/mergeMap';
+import { forkJoin } from 'rxjs/observable/forkJoin';
+import { tap } from 'rxjs/operators/tap';
+import { mapTo } from 'rxjs/operators/mapTo';
+import { mergeMap } from 'rxjs/operators/mergeMap';
 
 import { BackendService } from '@app/core';
 
@@ -40,15 +40,17 @@ export class PostsService implements Resolve<boolean> {
   ): boolean | Observable<boolean> | Promise<boolean> {
     return this.backend
       .get(RESOURCES[route.routeConfig.path])
-      .mergeMap((ids: any) =>
-        Observable.forkJoin(
-          ids
-            .filter((id, index) => index < 10)
-            .map(id => this.backend.get(`item/${id}.json`))
-        )
-      )
-      .do((posts: Post[]) => this.model.set(posts))
-      .mapTo(true);
+      .pipe(
+        mergeMap((ids: any) =>
+          forkJoin(
+            ids
+              .filter((id, index) => index < 10)
+              .map(id => this.backend.get(`item/${id}.json`))
+          )
+        ),
+        tap((posts: Post[]) => this.model.set(posts)),
+        mapTo(true)
+      );
   }
 }
 

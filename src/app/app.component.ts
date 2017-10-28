@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivationEnd, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import 'rxjs/add/operator/filter';
+import { filter } from 'rxjs/operators/filter';
 
 import { environment as env } from '@env/environment';
 
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.events
-      .filter(event => event instanceof ActivationEnd)
+      .pipe(filter(event => event instanceof ActivationEnd))
       .subscribe((event: ActivationEnd) => {
         let lastChild = event.snapshot;
         while (lastChild.children.length) {
