@@ -18,7 +18,8 @@
     "ci": "npm run clean && npm run prettier:ci && ng lint && ng test --browser ChromeTravisCi --single-run --reporters spec && npm run build:travisci",
     "release": "standard-version && git push --follow-tags origin master",
     "prettier": "prettier --single-quote --parser typescript --write \"./src/**/*.ts\" && prettier --single-quote --parser scss --write \"./src/**/*.scss\"",
-    "prettier:ci": "prettier --single-quote --parser typescript --list-different \"./src/**/*.ts\" && prettier --single-quote --parser scss --list-different \"./src/**/*.scss\""
+    "prettier:ci": "prettier --single-quote --parser typescript --list-different \"./src/**/*.ts\" && prettier --single-quote --parser scss --list-different \"./src/**/*.scss\"",
+    "analyze": "npm run clean && npm run build:prod && webpack-bundle-analyzer ./dist/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -60,6 +61,7 @@
     "standard-version": "^4.2.0",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
-    "typescript": "^2.5.3"
+    "typescript": "^2.5.3",
+    "webpack-bundle-analyzer": "^2.9.0"
   }
 }
