@@ -3,26 +3,26 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 
-import { NewsComponent } from './news.component';
+import { PostListComponent } from './post-list.component';
 import { PostComponent } from '../post/post.component';
 import { PostsService } from '../posts.service';
 
-describe('NewsComponent', () => {
-  let component: NewsComponent;
-  let fixture: ComponentFixture<NewsComponent>;
+describe('PostListComponent', () => {
+  let component: PostListComponent;
+  let fixture: ComponentFixture<PostListComponent>;
 
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
         imports: [CoreModule, SharedModule],
         providers: [PostsService],
-        declarations: [NewsComponent, PostComponent]
+        declarations: [PostListComponent, PostComponent]
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewsComponent);
+    fixture = TestBed.createComponent(PostListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

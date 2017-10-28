@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { NewsComponent } from './news/news.component';
+import { PostListComponent } from './post-list/post-list.component';
 import { PostsService } from './posts.service';
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'news',
-    component: NewsComponent,
+    component: PostListComponent,
     data: {
       title: 'News'
     },
@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'newest',
-    component: NewsComponent,
+    component: PostListComponent,
     data: {
       title: 'Newest'
     },
@@ -32,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'ask',
-    component: NewsComponent,
+    component: PostListComponent,
     data: {
       title: 'Ask'
     },
@@ -42,7 +42,7 @@ const routes: Routes = [
   },
   {
     path: 'show',
-    component: NewsComponent,
+    component: PostListComponent,
     data: {
       title: 'Show'
     },
@@ -52,7 +52,7 @@ const routes: Routes = [
   },
   {
     path: 'job',
-    component: NewsComponent,
+    component: PostListComponent,
     data: {
       title: 'Job'
     },

@@ -4,12 +4,12 @@ import { SharedModule } from '@app/shared';
 
 import { PostsRoutingModule } from './posts-routing.module';
 import { PostsService } from './posts.service';
-import { NewsComponent } from './news/news.component';
+import { PostListComponent } from './post-list/post-list.component';
 import { PostComponent } from './post/post.component';
 
 @NgModule({
   imports: [SharedModule, PostsRoutingModule],
-  declarations: [NewsComponent, PostComponent],
+  declarations: [PostListComponent, PostComponent],
   providers: [PostsService]
 })
 export class PostsModule {}
