@@ -7,24 +7,24 @@ import { PostsService } from './posts.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'news',
+    redirectTo: 'top',
     pathMatch: 'full'
   },
   {
-    path: 'news',
+    path: 'top',
     component: PostListComponent,
     data: {
-      title: 'News'
+      title: 'Top'
     },
     resolve: {
       posts: PostsService
     }
   },
   {
-    path: 'newest',
+    path: 'new',
     component: PostListComponent,
     data: {
-      title: 'Newest'
+      title: 'New'
     },
     resolve: {
       posts: PostsService

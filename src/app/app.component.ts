@@ -12,8 +12,8 @@ import { environment as env } from '@env/environment';
 })
 export class AppComponent implements OnInit {
   menu = [
-    { title: 'Top', path: 'posts/news' },
-    { title: 'New', path: 'posts/newest' },
+    { title: 'Top', path: 'posts/top' },
+    { title: 'New', path: 'posts/new' },
     { title: 'Show', path: 'posts/show' },
     { title: 'Ask', path: 'posts/ask' },
     { title: 'Job', path: 'posts/job' }

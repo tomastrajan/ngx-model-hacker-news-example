@@ -14,8 +14,8 @@ import { mergeMap } from 'rxjs/operators/mergeMap';
 import { BackendService } from '@app/core';
 
 const RESOURCES = {
-  news: 'topstories.json',
-  newest: 'newstories.json',
+  top: 'topstories.json',
+  new: 'newstories.json',
   show: 'showstories.json',
   job: 'jobstories.json',
   ask: 'askstories.json'
