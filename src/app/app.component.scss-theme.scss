@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+
+@mixin nmhne-root($theme) {
+  $primary: map-get($theme, primary);
+
+  nmhne-root {
+    mat-toolbar {
+      button.active {
+        background-color: mat-color($primary, darker);
+      }
+    }
+  }
+}

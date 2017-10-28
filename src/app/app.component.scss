@@ -1,12 +1,14 @@
-.title {
-  outline: 0;
-  cursor: pointer;
-}
+mat-toolbar {
+  .title {
+    outline: 0;
+    cursor: pointer;
+  }
 
-.spacer {
-  flex: 1 1 auto;
-}
+  .spacer {
+    flex: 1 1 auto;
+  }
 
-button {
-  margin: 0 0 0 10px;
+  button {
+    margin: 0 0 0 10px;
+  }
 }

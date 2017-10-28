@@ -1,15 +1,12 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <mat-toolbar color="primary">
-    <span class="title" routerLink="">ngx-model Hacker News Example</span>
-    <span class="spacer"></span>
-    <button mat-button
-            *ngFor="let item of menu"
-            [routerLink]="item.path"
-            routerLinkActive="active">
-      {{item.title}}
-    </button>
-  </mat-toolbar>
-  <router-outlet></router-outlet>
-</div>
+<mat-toolbar color="primary">
+  <span class="title" routerLink="">ngx-model Hacker News Example</span>
+  <span class="spacer"></span>
+  <button mat-button
+          *ngFor="let item of menu"
+          [routerLink]="item.path"
+          routerLinkActive="active">
+    {{item.title}}
+  </button>
+</mat-toolbar>
+<router-outlet></router-outlet>
 
