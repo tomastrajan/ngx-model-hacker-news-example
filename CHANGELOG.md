@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.1.0...v1.2.0) (2017-10-28)
+
+
+### Features
+
+* **build:** add webpack-bundle-analyzer and analyze build script ([46495eb](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/46495eb))
+* **nav:** highlight active route ([2ae6b3f](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/2ae6b3f))
+* **perf:** import angular material modules explicitly to decrease bundle size ([2a22a48](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/2a22a48))
+* **posts:** rename routes news to top and newest to new ([a7e3dbb](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/a7e3dbb))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.0.1...v1.1.0) (2017-10-24)
 
