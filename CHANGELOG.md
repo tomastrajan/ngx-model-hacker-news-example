@@ -1,5 +1,19 @@
 # Change Log
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.2.0...v1.3.0) (2017-11-09)
+
+
+### Features
+
+* **app:** add browser animation module ([037831a](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/037831a))
+* **build:** deploy only release builds ([8adf7fc](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/8adf7fc))
+* **dependency:** use angular 5, angular material 5 rc0 and fix typescript vesion to 2.4 ([92b3bba](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/92b3bba))
+* **index:** adjust initial page title ([e9c9516](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/e9c9516))
+
+
 
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.1.0...v1.2.0) (2017-10-28)
