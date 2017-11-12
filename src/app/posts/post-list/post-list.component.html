@@ -1,2 +1,6 @@
 <nmhne-post *ngFor="let post of postsService.posts$ | async"
             [post]="post"></nmhne-post>
+<div class="action">
+  <button mat-button *ngIf="(postsService.posts$ | async).length"
+          (click)="onLoadMoreClick()">Load more</button>
+</div>

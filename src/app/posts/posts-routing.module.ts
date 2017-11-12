@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PostListComponent } from './post-list/post-list.component';
-import { PostsService } from './posts.service';
 
 const routes: Routes = [
   {
@@ -15,9 +14,6 @@ const routes: Routes = [
     component: PostListComponent,
     data: {
       title: 'Top'
-    },
-    resolve: {
-      posts: PostsService
     }
   },
   {
@@ -25,9 +21,6 @@ const routes: Routes = [
     component: PostListComponent,
     data: {
       title: 'New'
-    },
-    resolve: {
-      posts: PostsService
     }
   },
   {
@@ -35,9 +28,6 @@ const routes: Routes = [
     component: PostListComponent,
     data: {
       title: 'Ask'
-    },
-    resolve: {
-      posts: PostsService
     }
   },
   {
@@ -45,9 +35,6 @@ const routes: Routes = [
     component: PostListComponent,
     data: {
       title: 'Show'
-    },
-    resolve: {
-      posts: PostsService
     }
   },
   {
@@ -55,9 +42,6 @@ const routes: Routes = [
     component: PostListComponent,
     data: {
       title: 'Job'
-    },
-    resolve: {
-      posts: PostsService
     }
   }
 ];

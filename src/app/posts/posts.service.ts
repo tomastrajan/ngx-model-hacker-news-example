@@ -1,14 +1,9 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot
-} from '@angular/router';
-import { ModelFactory, Model } from 'ngx-model';
+import { Model, ModelFactory } from 'ngx-model';
 import { Observable } from 'rxjs/Observable';
-import { forkJoin } from 'rxjs/observable/forkJoin';
 import { tap } from 'rxjs/operators/tap';
-import { mapTo } from 'rxjs/operators/mapTo';
+import { from } from 'rxjs/observable/from';
+import { concatMap } from 'rxjs/operators/concatMap';
 import { mergeMap } from 'rxjs/operators/mergeMap';
 
 import { BackendService } from '@app/core';
@@ -22,9 +17,11 @@ const RESOURCES = {
 };
 
 @Injectable()
-export class PostsService implements Resolve<boolean> {
+export class PostsService {
   private model: Model<Post[]>;
   posts$: Observable<Post[]>;
+  ids: number[];
+  index: number;
 
   constructor(
     private backend: BackendService,
@@ -34,23 +31,37 @@ export class PostsService implements Resolve<boolean> {
     this.posts$ = this.model.data$;
   }
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean | Observable<boolean> | Promise<boolean> {
-    return this.backend
-      .get(RESOURCES[route.routeConfig.path])
+  init(resource: string) {
+    this.model.set([]);
+    this.getIds(resource)
       .pipe(
-        mergeMap((ids: any) =>
-          forkJoin(
-            ids
-              .filter((id, index) => index < 10)
-              .map(id => this.backend.get(`item/${id}.json`))
-          )
-        ),
-        tap((posts: Post[]) => this.model.set(posts)),
-        mapTo(true)
-      );
+        tap((ids: number[]) => {
+          this.ids = ids;
+          this.index = 10;
+        }),
+        mergeMap((ids: number[]) => this.getItems(ids.slice(0, 10)))
+      )
+      .subscribe((post: Post) => this.addPost(post));
+  }
+
+  loadMorePosts() {
+    const ids = this.ids.slice(this.index, this.index + 10);
+    this.index = this.index + 10;
+    this.getItems(ids).subscribe((post: Post) => this.addPost(post));
+  }
+
+  private addPost(post: Post) {
+    this.model.set([...this.model.get(), post]);
+  }
+
+  private getIds(resource: string): Observable<number[]> {
+    return <Observable<number[]>>this.backend.get(RESOURCES[resource]);
+  }
+
+  private getItems(ids: number[]): Observable<Post> {
+    return from(ids).pipe(
+      concatMap(id => <Observable<Post>>this.backend.get(`item/${id}.json`))
+    );
   }
 }
 

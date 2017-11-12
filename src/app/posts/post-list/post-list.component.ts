@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { PostsService } from '../posts.service';
 
@@ -8,7 +9,16 @@ import { PostsService } from '../posts.service';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-  constructor(public postsService: PostsService) {}
+  constructor(
+    public postsService: PostsService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.postsService.init(this.route.routeConfig.path);
+  }
+
+  onLoadMoreClick() {
+    this.postsService.loadMorePosts();
+  }
 }
