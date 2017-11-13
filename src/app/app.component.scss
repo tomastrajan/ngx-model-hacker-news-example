@@ -1,4 +1,7 @@
 mat-toolbar {
+  position: fixed;
+  z-index: 1;
+
   .title {
     outline: 0;
     cursor: pointer;
@@ -11,4 +14,8 @@ mat-toolbar {
   button {
     margin: 0 0 0 10px;
   }
+}
+
+.content {
+  padding: 64px 0 0 0;
 }

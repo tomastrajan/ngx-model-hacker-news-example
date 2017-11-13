@@ -16,6 +16,8 @@ const RESOURCES = {
   ask: 'askstories.json'
 };
 
+const PAGE_SIZE = 10;
+
 @Injectable()
 export class PostsService {
   private model: Model<Post[]>;
@@ -37,16 +39,16 @@ export class PostsService {
       .pipe(
         tap((ids: number[]) => {
           this.ids = ids;
-          this.index = 10;
+          this.index = PAGE_SIZE;
         }),
-        mergeMap((ids: number[]) => this.getItems(ids.slice(0, 10)))
+        mergeMap((ids: number[]) => this.getItems(ids.slice(0, PAGE_SIZE)))
       )
       .subscribe((post: Post) => this.addPost(post));
   }
 
   loadMorePosts() {
-    const ids = this.ids.slice(this.index, this.index + 10);
-    this.index = this.index + 10;
+    const ids = this.ids.slice(this.index, this.index + PAGE_SIZE);
+    this.index = this.index + PAGE_SIZE;
     this.getItems(ids).subscribe((post: Post) => this.addPost(post));
   }
 

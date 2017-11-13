@@ -1,4 +1,9 @@
-.action {
-  padding: 0 20px 20px 20px;
-  text-align: center;
+:host {
+  display: block;
+  padding: 20px;
+
+  .action {
+    padding: 60px 0 40px 0;
+    text-align: center;
+  }
 }
