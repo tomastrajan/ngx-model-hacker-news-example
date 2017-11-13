@@ -1,4 +1,4 @@
 <mat-card>
-  <h2>({{post.score}}) <a [href]="post.url" target="_blank">{{post.title}}</a></h2>
-  <p>{{post.by}}</p>
+  <p class="user">{{post.by}} <mat-icon>person</mat-icon></p>
+  <h2><span><mat-icon>thumb_up</mat-icon> {{post.score}}</span> <a [href]="post.url" target="_blank">{{post.title}}</a></h2>
 </mat-card>

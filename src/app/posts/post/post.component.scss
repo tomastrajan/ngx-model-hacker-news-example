@@ -1,8 +1,28 @@
 :host {
   display: block;
-  padding: 20px;
+  padding: 10px;
+
+  mat-icon {
+    position: relative;
+    top: 6px;
+  }
 
   h2 {
     font-size: 16px;
+    position: relative;
+
+    span {
+      display: inline-block;
+      width: 100px;
+    }
+
+    a {
+      display: inline-block;
+      max-width: 60%;
+    }
+  }
+
+  .user {
+    float: right;
   }
 }
