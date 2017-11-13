@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { PostsService } from '../posts.service';
+import { listTransitions } from '@app/core';
+
+import { Post, PostsService } from '../posts.service';
 
 @Component({
   selector: 'nmhne-post-list',
   templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.scss']
+  styleUrls: ['./post-list.component.scss'],
+  animations: [listTransitions]
 })
 export class PostListComponent implements OnInit {
   constructor(
@@ -20,5 +23,9 @@ export class PostListComponent implements OnInit {
 
   onLoadMoreClick() {
     this.postsService.loadMorePosts();
+  }
+
+  trackByPostId(index: number, post: Post) {
+    return post.id;
   }
 }

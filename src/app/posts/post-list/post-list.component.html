@@ -1,6 +1,12 @@
-<nmhne-post *ngFor="let post of postsService.posts$ | async"
-            [post]="post"></nmhne-post>
+<div [@listTransitions]="(postsService.posts$ | async).length">
+  <nmhne-post *ngFor="let post of postsService.posts$ | async;
+                      trackBy: trackByPostId"
+              [post]="post"></nmhne-post>
+</div>
 <div class="action">
-  <button mat-button *ngIf="(postsService.posts$ | async).length"
-          (click)="onLoadMoreClick()">Load more</button>
+  <button mat-fab color="primary"
+          *ngIf="(postsService.posts$ | async).length"
+          (click)="onLoadMoreClick()">
+    <mat-icon aria-label="Load more posts">add</mat-icon>
+  </button>
 </div>

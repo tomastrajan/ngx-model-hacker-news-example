@@ -1,5 +1,7 @@
+import { ActivatedRoute } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
@@ -7,7 +9,6 @@ import { SharedModule } from '@app/shared';
 import { PostListComponent } from './post-list.component';
 import { PostComponent } from '../post/post.component';
 import { PostsService } from '../posts.service';
-import { ActivatedRoute } from '@angular/router';
 
 describe('PostListComponent', () => {
   let component: PostListComponent;
@@ -16,7 +17,12 @@ describe('PostListComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [CoreModule, SharedModule, RouterTestingModule],
+        imports: [
+          CoreModule,
+          SharedModule,
+          RouterTestingModule,
+          NoopAnimationsModule
+        ],
         declarations: [PostListComponent, PostComponent],
         providers: [
           PostsService,
