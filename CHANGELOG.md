@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.4.0...v1.5.0) (2017-11-13)
+
+
+### Features
+
+* **core:** add list animations ([64beab7](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/64beab7))
+* **posts:** animate posts list, use icon for load more functionality ([8db5a5c](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/8db5a5c))
+* **posts:** enhance post styles, use icons for user and points, make post smaller ([7631b11](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/7631b11))
+* **shared:** add material icons capabilities ([402728d](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/402728d))
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.3.0...v1.4.0) (2017-11-12)
 
