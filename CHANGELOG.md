@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.6.0...v1.7.0) (2017-12-07)
+
+
+### Bug Fixes
+
+* **posts:** default url when missing ([6332bbe](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/6332bbe))
+* **posts:** styles code style ([51a3452](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/51a3452))
+
+
+### Features
+
+* **posts:** enhance post styles ([04d2de0](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/04d2de0))
+
+
+
 <a name="1.6.0"></a>
 # [1.6.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.5.0...v1.6.0) (2017-12-07)
 
