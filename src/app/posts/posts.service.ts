@@ -54,7 +54,7 @@ export class PostsService {
   }
 
   private addPost(post: Post) {
-    post.domain = post.url
+    post.domain = (post.url || '')
       .slice()
       .replace(/https?:\/\//, '')
       .replace(/www\./, '')
