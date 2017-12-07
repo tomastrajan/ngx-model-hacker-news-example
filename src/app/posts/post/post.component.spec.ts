@@ -20,14 +20,17 @@ describe('PostComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PostComponent);
     component = fixture.componentInstance;
+    component.index = 0;
     component.post = {
       id: 0,
       url: '',
+      domain: '',
       by: '',
       title: '',
       descendants: 0,
       kids: [],
       time: 0,
+      timeSince: '',
       type: '',
       score: 0
     };

@@ -6,7 +6,7 @@ import { from } from 'rxjs/observable/from';
 import { concatMap } from 'rxjs/operators/concatMap';
 import { mergeMap } from 'rxjs/operators/mergeMap';
 
-import { BackendService } from '@app/core';
+import { BackendService, TimeService } from '@app/core';
 
 const RESOURCES = {
   top: 'topstories.json',
@@ -27,6 +27,7 @@ export class PostsService {
 
   constructor(
     private backend: BackendService,
+    private time: TimeService,
     private modelFactory: ModelFactory<Post[]>
   ) {
     this.model = this.modelFactory.create([]);
@@ -53,6 +54,12 @@ export class PostsService {
   }
 
   private addPost(post: Post) {
+    post.domain = post.url
+      .slice()
+      .replace(/https?:\/\//, '')
+      .replace(/www\./, '')
+      .split('/')[0];
+    post.timeSince = this.time.timeSince(post.time);
     this.model.set([...this.model.get(), post]);
   }
 
@@ -71,10 +78,12 @@ export interface Post {
   id: number;
   title: string;
   url: string;
+  domain: string;
   by: string;
   type: string;
   score: number;
   time: number;
+  timeSince: string;
   kids: number[];
   descendants: number;
 }

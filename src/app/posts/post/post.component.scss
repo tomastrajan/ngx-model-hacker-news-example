@@ -2,27 +2,66 @@
   display: block;
   margin: 10px;
 
-  mat-icon {
-    position: relative;
-    top: 6px;
-  }
+  mat-card {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 20px;
 
-  h2 {
-    font-size: 16px;
-    position: relative;
-
-    span {
-      display: inline-block;
-      width: 100px;
+    mat-icon {
+      position: relative;
+      top: 6px;
     }
 
-    a {
-      display: inline-block;
-      max-width: 60%;
-    }
-  }
+    .score {
+      min-width: 80px;
+      font-weight: bold;
 
-  .user {
-    float: right;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .content {
+      flex: 1 1;
+
+      mat-icon {
+        margin: 0 5px 0 0;
+      }
+
+      h2 {
+        font-size: 16px;
+        position: relative;
+        margin: 0;
+
+        a {
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        span {
+          opacity: 0.3;
+        }
+      }
+
+      p {
+        position: relative;
+        top: -5px;
+        font-size: 14px;
+        margin: 0;
+        opacity: 0.35;
+      }
+    }
+
+    button {
+      mat-icon {
+        top: 1px;
+      }
+
+      span {
+        position: relative;
+        left: -2px;
+        top: 1px;
+      }
+    }
   }
 }

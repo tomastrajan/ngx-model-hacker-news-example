@@ -1,7 +1,8 @@
 <div class="list" [@listTransitions]="(postsService.posts$ | async).length">
   <nmhne-post *ngFor="let post of postsService.posts$ | async;
-                      trackBy: trackByPostId"
-              [post]="post"></nmhne-post>
+                      trackBy: trackByPostId; let i = index"
+              [post]="post"
+              [index]="i + 1"></nmhne-post>
 </div>
 <div class="action">
   <button mat-fab color="primary"

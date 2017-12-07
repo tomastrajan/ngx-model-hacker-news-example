@@ -3,8 +3,14 @@
 @mixin nmhne-posts-component-theme($theme) {
   $primary: map-get($theme, primary);
   $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
 
   nmhne-post {
+    .score {
+      &:hover {
+        color: mat-color($primary);
+      }
+    }
     h2 {
       a {
         color: mat-color($foreground, text);
@@ -13,6 +19,10 @@
           color: mat-color($primary);
         }
       }
+    }
+
+    button {
+      background-color: mat-color($background, card) !important;
     }
   }
 }
