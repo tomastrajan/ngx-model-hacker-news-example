@@ -2,12 +2,17 @@
 
 @mixin nmhne-root($theme) {
   $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
 
   nmhne-root {
     mat-toolbar {
       button.active {
         background-color: mat-color($primary, darker);
       }
+    }
+
+    >.content {
+      background-color: mat-color($background, app-bar);
     }
   }
 }

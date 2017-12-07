@@ -6,6 +6,11 @@
   $background: map-get($theme, background);
 
   nmhne-post {
+
+    mat-card {
+      border-bottom: 1px solid mat-color($background, status-bar);
+    }
+
     .score {
       &:hover {
         color: mat-color($primary);
