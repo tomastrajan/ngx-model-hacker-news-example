@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.0"></a>
+# [1.10.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.9.0...v1.10.0) (2017-12-08)
+
+
+### Bug Fixes
+
+* **app:** footer flex layout ([6e2aac7](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/6e2aac7))
+* **build:** add node types ([c66c45f](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/c66c45f))
+* **posts:** dont add deleted comments ([5036f17](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/5036f17))
+
+
+### Features
+
+* **app:** add footer with version and signature, adjust branding ([126806f](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/126806f))
+* **app:** adjust branding ([861b184](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/861b184))
+* **posts:** close comments fab, key shortcuts ([8584052](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/8584052))
+* **posts:** race condition when switching resources before requests finished ([31da47f](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/31da47f))
+
+
+
 <a name="1.9.0"></a>
 # [1.9.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.8.0...v1.9.0) (2017-12-08)
 
