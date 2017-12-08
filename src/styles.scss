@@ -8,6 +8,10 @@ body {
   height: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 @import '~@angular/material/theming';
 
 @include mat-core();

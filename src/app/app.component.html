@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span class="title" routerLink=""><span>Y</span> HAKAFAKA</span>
+  <span class="title" routerLink=""><span>HF</span> HAKAFAKA</span>
   <span class="spacer"></span>
   <button mat-button
           *ngFor="let item of menu"
@@ -11,4 +11,8 @@
 <div class="content">
   <router-outlet></router-outlet>
 </div>
-
+<footer>
+  <div>{{year}}</div>
+  <div>HAKAFAKA</div>
+  <div><a href="https://github.com/tomastrajan/ngx-model-hacker-news-example/blob/master/CHANGELOG.md" target="_blank">{{version}}</a></div>
+</footer>

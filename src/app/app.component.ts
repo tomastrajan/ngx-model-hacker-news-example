@@ -18,6 +18,8 @@ export class AppComponent implements OnInit {
     { title: 'Ask', path: 'posts/ask' },
     { title: 'Job', path: 'posts/job' }
   ];
+  year = new Date().getFullYear();
+  version = env.version;
 
   constructor(private router: Router, private titleService: Title) {}
 
