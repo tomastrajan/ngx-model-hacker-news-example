@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+@mixin styles-theme($theme) {
+  $background: map-get($theme, background);
+
+  body {
+    background-color: mat-color($background, app-bar);
+  }
+}

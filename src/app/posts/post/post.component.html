@@ -1,10 +1,17 @@
 <mat-card>
   <div class="score"><mat-icon>thumb_up</mat-icon> {{post.score}}</div>
   <div class="content">
-    <h2><a [href]="post.url" target="_blank"><mat-icon>link</mat-icon> {{post.title}}</a> <span>({{post.domain}})</span></h2>
-    <p><mat-icon>info</mat-icon>#{{index}} by {{post.by}} {{post.timeSince}} ago</p>
+    <h2>
+      <a [href]="post.url" target="_blank">
+        <mat-icon *ngIf="post.domain.length">link</mat-icon>
+        <mat-icon *ngIf="!post.domain.length">person_outline</mat-icon>
+        {{post.title}}
+      </a>
+      <span *ngIf="post.domain.length">({{post.domain}})</span>
+    </h2>
+    <p>#{{index}} by {{post.by}} {{post.timeSince}} ago</p>
   </div>
-  <button mat-fab *ngIf="post.descendants > 0">
+  <button mat-button color="primary" *ngIf="post.descendants > 0">
     <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
   </button>
 </mat-card>

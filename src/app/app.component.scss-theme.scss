@@ -1,6 +1,6 @@
 @import '~@angular/material/theming';
 
-@mixin nmhne-root($theme) {
+@mixin nmhne-root-theme($theme) {
   $primary: map-get($theme, primary);
   $background: map-get($theme, background);
 
@@ -9,10 +9,6 @@
       button.active {
         background-color: mat-color($primary, darker);
       }
-    }
-
-    > .content {
-      background-color: mat-color($background, app-bar);
     }
   }
 }

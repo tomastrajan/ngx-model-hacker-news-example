@@ -28,7 +28,7 @@
       }
 
       h2 {
-        font-size: 16px;
+        font-size: 14px;
         position: relative;
         margin: 0;
 
@@ -38,16 +38,17 @@
         }
 
         span {
-          opacity: 0.3;
+          opacity: 0.35;
         }
       }
 
       p {
         position: relative;
-        top: -5px;
-        font-size: 14px;
+        top: -4px;
+        font-size: 13px;
         margin: 0;
-        opacity: 0.35;
+        opacity: 0.5;
+        padding: 0 0 0 32px;
       }
     }
 
@@ -58,7 +59,6 @@
 
       span {
         position: relative;
-        left: -2px;
         top: 1px;
       }
     }
