@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  padding: 0 0 0 0;
+
+  &.root {
+    padding: 0 0 40px 0;
+  }
+
+  .author {
+    font-size: 12px;
+    opacity: 0.4;
+    padding: 15px 0 5px 0;
+
+    .root-icon {
+      margin: 0 5px 0 -33px;
+    }
+
+    mat-icon {
+      cursor: pointer;
+      position: relative;
+      top: 7px;
+    }
+  }
+
+  .content {
+    font-size: 13px;
+  }
+
+  .children {
+    padding: 0 0 0 40px;
+  }
+}

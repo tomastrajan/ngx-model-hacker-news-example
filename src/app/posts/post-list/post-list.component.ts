@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs/Subject';
+import { takeUntil } from 'rxjs/operators';
 
 import { listTransitions } from '@app/core';
 
-import { Post, PostsService } from '../posts.service';
+import { Post, Posts, PostsService } from '../posts.service';
 
 @Component({
   selector: 'nmhne-post-list',
@@ -11,7 +13,10 @@ import { Post, PostsService } from '../posts.service';
   styleUrls: ['./post-list.component.scss'],
   animations: [listTransitions]
 })
-export class PostListComponent implements OnInit {
+export class PostListComponent implements OnInit, OnDestroy {
+  private unsubscribe$: Subject<void> = new Subject<void>();
+  posts: Posts;
+
   constructor(
     public postsService: PostsService,
     private route: ActivatedRoute
@@ -19,13 +24,17 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     this.postsService.init(this.route.routeConfig.path);
+    this.postsService.posts$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(posts => (this.posts = posts));
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   onLoadMoreClick() {
     this.postsService.loadMorePosts();
-  }
-
-  trackByPostId(index: number, post: Post) {
-    return post.id;
   }
 }

@@ -5,6 +5,11 @@ mat-toolbar {
   .title {
     outline: 0;
     cursor: pointer;
+
+    span {
+      padding: 10px 17px;
+      margin: 0 10px 0 0;
+    }
   }
 
   .spacer {

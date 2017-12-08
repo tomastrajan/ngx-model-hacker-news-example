@@ -9,6 +9,7 @@ import { SharedModule } from '@app/shared';
 import { PostListComponent } from './post-list.component';
 import { PostComponent } from '../post/post.component';
 import { PostsService } from '../posts.service';
+import { CommentComponent } from '../comment/comment.component';
 
 describe('PostListComponent', () => {
   let component: PostListComponent;
@@ -23,7 +24,7 @@ describe('PostListComponent', () => {
           RouterTestingModule,
           NoopAnimationsModule
         ],
-        declarations: [PostListComponent, PostComponent],
+        declarations: [PostListComponent, PostComponent, CommentComponent],
         providers: [
           PostsService,
           { provide: ActivatedRoute, useValue: { routeConfig: {} } }

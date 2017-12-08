@@ -16,6 +16,14 @@ export const listTransitions = trigger('listTransitions', [
         animate('0.5s ease-in-out', style({ maxHeight: '5000px', opacity: 1 }))
       ]),
       { optional: true }
+    ),
+    query(
+      '@listTransitions > :leave',
+      group([
+        style({ maxHeight: '5000px', opacity: 1 }),
+        animate('0.5s ease-in-out', style({ maxHeight: '0px', opacity: 0 }))
+      ]),
+      { optional: true }
     )
   ])
 ]);

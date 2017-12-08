@@ -1,0 +1,14 @@
+<div class="author">
+  <mat-icon *ngIf="root" class="root-icon">forum</mat-icon>
+  {{comment.by}} {{comment.timeSince}} ago
+  <span *ngIf="comment?.comments?.length && collapsed">
+    <mat-icon (click)="toggleCollapse()">add_circle_outline</mat-icon> {{descendants}}
+  </span>
+  <mat-icon *ngIf="comment?.comments?.length && !collapsed" (click)="toggleCollapse()">remove_circle_outline</mat-icon>
+</div>
+<div class="content" [innerHTML]="comment.text"></div>
+<div class="children" *ngIf="comment?.comments?.length && !collapsed"
+     [@listTransitions]="comment.comments.length + descendants">
+  <nmhne-comment *ngFor="let subcomment of comment.comments; trackBy: postsService.trackByItemId;"
+                 [comment]="subcomment"></nmhne-comment>
+</div>

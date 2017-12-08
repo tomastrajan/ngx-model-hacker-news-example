@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [ngClass]="{ selected: selected }">
   <div class="score"><mat-icon>thumb_up</mat-icon> {{post.score}}</div>
   <div class="content">
     <h2>
@@ -11,7 +11,18 @@
     </h2>
     <p>#{{index}} by {{post.by}} {{post.timeSince}} ago</p>
   </div>
-  <button mat-button color="primary" *ngIf="post.descendants > 0">
+  <button mat-button color="primary" *ngIf="post.descendants > 0 && !selected"
+    (click)="onCommentsClick()">
+    <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
+  </button>
+  <button mat-raised-button color="primary" *ngIf="post.descendants > 0 && selected"
+    (click)="onActiveCommentsClick()">
     <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
   </button>
 </mat-card>
+<div class="comments" *ngIf="selected && post.comments"
+     [@listTransitions]="post.comments.length">
+  <nmhne-comment *ngFor="let comment of post.comments; trackBy: postsService.trackByItemId"
+                 [comment]="comment"
+                 [root]="true"></nmhne-comment>
+</div>

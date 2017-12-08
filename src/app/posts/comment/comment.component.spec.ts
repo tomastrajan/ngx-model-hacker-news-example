@@ -3,40 +3,34 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 
-import { PostComponent } from './post.component';
+import { CommentComponent } from './comment.component';
 import { PostsService } from '../posts.service';
-import { CommentComponent } from '../comment/comment.component';
 
-describe('PostComponent', () => {
-  let component: PostComponent;
-  let fixture: ComponentFixture<PostComponent>;
+describe('CommentComponent', () => {
+  let component: CommentComponent;
+  let fixture: ComponentFixture<CommentComponent>;
 
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
         imports: [CoreModule, SharedModule],
-        declarations: [PostComponent, CommentComponent],
+        declarations: [CommentComponent],
         providers: [PostsService]
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostComponent);
+    fixture = TestBed.createComponent(CommentComponent);
     component = fixture.componentInstance;
-    component.index = 0;
-    component.post = {
+    component.comment = {
       id: 0,
-      url: '',
-      domain: '',
+      parent: 0,
       by: '',
-      title: '',
-      descendants: 0,
       kids: [],
       time: 0,
       timeSince: '',
-      type: '',
-      score: 0
+      text: ''
     };
     fixture.detectChanges();
   });

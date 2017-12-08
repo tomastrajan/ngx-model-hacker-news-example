@@ -9,6 +9,12 @@
       button.active {
         background-color: mat-color($primary, darker);
       }
+
+      .title {
+        span {
+          border: 2px solid mat-color($background, card);
+        }
+      }
     }
   }
 }

@@ -5,6 +5,12 @@
     display: flex;
     flex-direction: row;
     padding: 5px 20px;
+    transition: all 0.5s;
+
+    &.selected {
+      padding: 20px 40px;
+      margin: 20px -20px;
+    }
 
     mat-icon {
       position: relative;
@@ -62,5 +68,8 @@
         top: 1px;
       }
     }
+  }
+  .comments {
+    padding: 0 300px 40px 133px;
   }
 }
