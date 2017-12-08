@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Model, ModelFactory } from 'ngx-model';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import { tap } from 'rxjs/operators/tap';
 import { from } from 'rxjs/observable/from';
 import { concatMap } from 'rxjs/operators/concatMap';
 import { mergeMap } from 'rxjs/operators/mergeMap';
+import { takeUntil } from 'rxjs/operators/takeUntil';
 
 import { BackendService, TimeService } from '@app/core';
 
@@ -20,6 +22,7 @@ const PAGE_SIZE = 20;
 
 @Injectable()
 export class PostsService {
+  private resourceChange$: Subject<void> = new Subject<void>();
   private model: Model<Posts>;
   posts$: Observable<Posts>;
 
@@ -33,6 +36,7 @@ export class PostsService {
   }
 
   init(resource: string) {
+    this.resourceChange$.next();
     this.model.set({
       items: []
     });
@@ -45,7 +49,8 @@ export class PostsService {
             items: []
           });
         }),
-        mergeMap((ids: number[]) => this.getItems(ids.slice(0, PAGE_SIZE)))
+        mergeMap((ids: number[]) => this.getItems(ids.slice(0, PAGE_SIZE))),
+        takeUntil(this.resourceChange$)
       )
       .subscribe((post: Post) => this.addPost(post));
   }
@@ -55,7 +60,9 @@ export class PostsService {
     const ids = data.ids.slice(data.index, data.index + PAGE_SIZE);
     data.index += PAGE_SIZE;
     this.model.set(data);
-    this.getItems(ids).subscribe((post: Post) => this.addPost(post));
+    this.getItems(ids)
+      .pipe(takeUntil(this.resourceChange$))
+      .subscribe((post: Post) => this.addPost(post));
   }
 
   selectPost(post: Post) {

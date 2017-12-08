@@ -29,8 +29,10 @@ describe('CommentComponent', () => {
       by: '',
       kids: [],
       time: 0,
+      score: 0,
       timeSince: '',
-      text: ''
+      text: '',
+      deleted: false
     };
     fixture.detectChanges();
   });
