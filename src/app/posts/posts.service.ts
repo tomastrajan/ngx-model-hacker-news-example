@@ -130,7 +130,7 @@ export class PostsService {
       if (!item.comments) {
         item.comments = [];
       }
-      if (!item.comments.some(c => c.id === comment.id)) {
+      if (!comment.deleted && !item.comments.some(c => c.id === comment.id)) {
         comment.timeSince = this.time.timeSince(comment.time);
         item.comments.push(comment);
       }
@@ -188,6 +188,7 @@ export interface Comment {
   text: string;
   score: number;
   by: string;
+  deleted: boolean;
   time: number;
   timeSince: string;
   comments?: Comment[];
