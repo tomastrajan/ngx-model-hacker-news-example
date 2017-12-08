@@ -37,4 +37,8 @@ export class PostListComponent implements OnInit, OnDestroy {
   onLoadMoreClick() {
     this.postsService.loadMorePosts();
   }
+
+  onCloseSelectedCommentsClick() {
+    this.postsService.unselectPost();
+  }
 }

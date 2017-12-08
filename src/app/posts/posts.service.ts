@@ -58,31 +58,27 @@ export class PostsService {
     this.getItems(ids).subscribe((post: Post) => this.addPost(post));
   }
 
-  loadComments(source: Post | Comment) {
-    this.getItems(source.kids).subscribe((comment: any) => {
-      const data = this.model.get();
-      const item = this.findParent(data.items, comment.parent);
-      if (!item.comments) {
-        item.comments = [];
-      }
-      if (!item.comments.some(c => c.id === comment.id)) {
-        comment.timeSince = this.time.timeSince(comment.time);
-        item.comments.push(comment);
-      }
-      this.model.set(data);
-      if (comment.kids) {
-        this.loadComments(comment);
-      }
-    });
-  }
-
   selectPost(post: Post) {
     const data = this.model.get();
     data.selectedId = post.id;
     this.model.set(data);
+    this.loadComments(post);
   }
 
-  unselectPost(post: Post) {
+  selectNextPost(sourcePost: Post, isNext = true) {
+    const data = this.model.get();
+    const nextPostIndex =
+      data.items.findIndex(post => post.id === sourcePost.id) +
+      (isNext ? 1 : -1);
+    const nextPost = data.items[nextPostIndex];
+    if (nextPost) {
+      data.selectedId = nextPost.id;
+      this.model.set(data);
+      this.loadComments(nextPost);
+    }
+  }
+
+  unselectPost() {
     const data = this.model.get();
     data.selectedId = null;
     this.model.set(data);
@@ -125,6 +121,24 @@ export class PostsService {
     return from(ids).pipe(
       concatMap(id => <Observable<Post>>this.backend.get(`item/${id}.json`))
     );
+  }
+
+  private loadComments(source: Post | Comment) {
+    this.getItems(source.kids).subscribe((comment: any) => {
+      const data = this.model.get();
+      const item = this.findParent(data.items, comment.parent);
+      if (!item.comments) {
+        item.comments = [];
+      }
+      if (!item.comments.some(c => c.id === comment.id)) {
+        comment.timeSince = this.time.timeSince(comment.time);
+        item.comments.push(comment);
+      }
+      this.model.set(data);
+      if (comment.kids) {
+        this.loadComments(comment);
+      }
+    });
   }
 
   private findParent(items: Post[] | Comment[], itemId: number) {
@@ -172,6 +186,7 @@ export interface Comment {
   parent: number;
   kids: number[];
   text: string;
+  score: number;
   by: string;
   time: number;
   timeSince: string;

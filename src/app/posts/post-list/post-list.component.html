@@ -1,3 +1,8 @@
+<button class="action-comments" mat-fab
+        *ngIf="posts.selectedId || posts.selectedId === 0"
+        (click)="onCloseSelectedCommentsClick()">
+  <mat-icon>close</mat-icon>
+</button>
 <div class="list" [@listTransitions]="posts.items.length">
   <nmhne-post *ngFor="let post of posts.items;
                       trackBy: postsService.trackByItemId; let i = index"
