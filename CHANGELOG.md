@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.0"></a>
+# [1.8.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.7.0...v1.8.0) (2017-12-08)
+
+
+### Features
+
+* **posts:** comments ([67aaa45](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/67aaa45))
+* **posts:** distinguish between link and self posts, enhance post styles ([87a9074](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/87a9074))
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.6.0...v1.7.0) (2017-12-07)
 

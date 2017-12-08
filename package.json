@@ -1,13 +1,13 @@
 {
   "name": "ngx-model-hacker-news-example",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
     "build": "ng build",
     "test": "ng test --browser ChromeHeadless --single-run",
-    "watch": "ng test --browsers ChromeHeadless",
+    "watch": "ng test --browsers ChromeHeadless -sm=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:prod": "ng build --target production --build-optimizer --vendor-chunk --stats-json",
