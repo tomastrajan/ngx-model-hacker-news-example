@@ -44,6 +44,12 @@ export class PostListComponent implements OnInit, OnDestroy {
     this.selectNextPostComponent();
   }
 
+  @HostListener('window:keyup.enter', ['$event'])
+  handleEnter(event: KeyboardEvent) {
+    event.preventDefault();
+    this.openSelectedPostLink();
+  }
+
   constructor(
     private route: ActivatedRoute,
     public postsService: PostsService
@@ -96,5 +102,14 @@ export class PostListComponent implements OnInit, OnDestroy {
     if (nextPostComponent) {
       nextPostComponent.select();
     }
+  }
+
+  private openSelectedPostLink() {
+    this.postComponents.some(postComponent => {
+      if (postComponent.post.selected) {
+        window.open(postComponent.post.url, '_blank');
+        return true;
+      }
+    });
   }
 }
