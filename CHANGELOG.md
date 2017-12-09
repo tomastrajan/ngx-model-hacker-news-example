@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.11.0"></a>
+# [1.11.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.10.0...v1.11.0) (2017-12-09)
+
+
+### Bug Fixes
+
+* **posts:** animate to deselected post on fab click ([a11a95d](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/a11a95d))
+
+
+### Features
+
+* **posts:** cancel outstanding comment requests when selected post changes ([3352ca2](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/3352ca2))
+* **posts:** scroll to post when selected and off screen ([f20147a](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/f20147a))
+
+
+
 <a name="1.10.0"></a>
 # [1.10.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.9.0...v1.10.0) (2017-12-08)
 
