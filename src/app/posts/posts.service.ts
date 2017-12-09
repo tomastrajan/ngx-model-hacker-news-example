@@ -23,6 +23,7 @@ const PAGE_SIZE = 20;
 @Injectable()
 export class PostsService {
   private resourceChange$: Subject<void> = new Subject<void>();
+  private selectedPostChange$: Subject<void> = new Subject<void>();
   private model: Model<Posts>;
   posts$: Observable<Posts>;
 
@@ -69,6 +70,7 @@ export class PostsService {
     const data = this.model.get();
     data.selectedId = post.id;
     this.model.set(data);
+    this.selectedPostChange$.next();
     this.loadComments(post);
   }
 
@@ -79,9 +81,7 @@ export class PostsService {
       (isNext ? 1 : -1);
     const nextPost = data.items[nextPostIndex];
     if (nextPost) {
-      data.selectedId = nextPost.id;
-      this.model.set(data);
-      this.loadComments(nextPost);
+      this.selectPost(nextPost);
     }
   }
 
@@ -131,21 +131,26 @@ export class PostsService {
   }
 
   private loadComments(source: Post | Comment) {
-    this.getItems(source.kids).subscribe((comment: any) => {
-      const data = this.model.get();
-      const item = this.findParent(data.items, comment.parent);
-      if (!item.comments) {
-        item.comments = [];
-      }
-      if (!comment.deleted && !item.comments.some(c => c.id === comment.id)) {
-        comment.timeSince = this.time.timeSince(comment.time);
-        item.comments.push(comment);
-      }
-      this.model.set(data);
-      if (comment.kids) {
-        this.loadComments(comment);
-      }
-    });
+    if (!source.kids || !source.kids.length) {
+      return;
+    }
+    this.getItems(source.kids)
+      .pipe(takeUntil(this.selectedPostChange$))
+      .subscribe((comment: any) => {
+        const data = this.model.get();
+        const item = this.findParent(data.items, comment.parent);
+        if (!item.comments) {
+          item.comments = [];
+        }
+        if (!comment.deleted && !item.comments.some(c => c.id === comment.id)) {
+          comment.timeSince = this.time.timeSince(comment.time);
+          item.comments.push(comment);
+        }
+        this.model.set(data);
+        if (comment.kids) {
+          this.loadComments(comment);
+        }
+      });
   }
 
   private findParent(items: Post[] | Comment[], itemId: number) {

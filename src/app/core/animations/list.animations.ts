@@ -21,7 +21,7 @@ export const listTransitions = trigger('listTransitions', [
       '@listTransitions > :leave',
       group([
         style({ maxHeight: '5000px', opacity: 1 }),
-        animate('0.5s ease-in-out', style({ maxHeight: '0px', opacity: 0 }))
+        animate('0.2s ease-in-out', style({ maxHeight: '0px', opacity: 0 }))
       ]),
       { optional: true }
     )
