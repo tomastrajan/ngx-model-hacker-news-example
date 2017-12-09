@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { DOWN_ARROW, ESCAPE, UP_ARROW } from '@angular/cdk/keycodes';
 
-import { listTransitions } from '@app/core';
+import { listTransitions, ScrollService } from '@app/core';
 
 import { Post, PostsService } from '../posts.service';
 
@@ -27,10 +27,10 @@ export class PostComponent implements OnInit {
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if (this.selected && event.keyCode === ESCAPE) {
+      event.stopImmediatePropagation();
       this.executeAfterUnselectingPreviousPost();
     }
     if (this.selected && event.keyCode === DOWN_ARROW) {
-      event.stopImmediatePropagation();
       event.stopImmediatePropagation();
       this.executeAfterUnselectingPreviousPost(
         this.postsService.selectNextPost.bind(this.postsService, this.post)
@@ -48,31 +48,28 @@ export class PostComponent implements OnInit {
     }
   }
 
-  constructor(private postsService: PostsService, private el: ElementRef) {}
+  constructor(
+    private postsService: PostsService,
+    private scrollService: ScrollService,
+    private el: ElementRef
+  ) {}
 
   ngOnInit() {}
 
-  onCommentsClick() {
+  select() {
     this.executeAfterUnselectingPreviousPost(
       this.postsService.selectPost.bind(this.postsService, this.post)
     );
   }
 
-  onActiveCommentsClick() {
+  unselect() {
     this.executeAfterUnselectingPreviousPost();
   }
 
-  executeAfterUnselectingPreviousPost(callback?: any) {
+  private executeAfterUnselectingPreviousPost(callback?: any) {
     this.postsService.unselectPost();
     setTimeout(() => {
-      const { top } = this.el.nativeElement.getBoundingClientRect();
-      if (top < 70 || top > window.innerHeight) {
-        this.el.nativeElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'center'
-        });
-      }
+      this.scrollService.scrollToElementIfOffscreen(this.el);
       if (callback) {
         callback();
       }

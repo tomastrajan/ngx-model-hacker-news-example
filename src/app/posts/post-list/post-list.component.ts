@@ -1,11 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
 
 import { listTransitions } from '@app/core';
 
-import { Post, Posts, PostsService } from '../posts.service';
+import { Posts, PostsService } from '../posts.service';
+import { PostComponent } from '@app/posts/post/post.component';
 
 @Component({
   selector: 'nmhne-post-list',
@@ -17,9 +18,11 @@ export class PostListComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
   posts: Posts;
 
+  @ViewChildren(PostComponent) postComponents;
+
   constructor(
-    public postsService: PostsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public postsService: PostsService
   ) {}
 
   ngOnInit() {
@@ -39,6 +42,11 @@ export class PostListComponent implements OnInit, OnDestroy {
   }
 
   onCloseSelectedCommentsClick() {
-    this.postsService.unselectPost();
+    this.postComponents.some(postComponent => {
+      if (postComponent.selected) {
+        postComponent.unselect();
+        return true;
+      }
+    });
   }
 }

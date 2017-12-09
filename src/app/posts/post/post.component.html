@@ -15,11 +15,11 @@
     <mat-icon>link</mat-icon>
   </a>
   <button mat-button color="primary" *ngIf="post.descendants > 0 && !selected"
-    (click)="onCommentsClick()">
+    (click)="select()">
     <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
   </button>
   <button mat-raised-button color="primary" *ngIf="post.descendants > 0 && selected"
-    (click)="onActiveCommentsClick()">
+    (click)="unselect()">
     <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
   </button>
 </mat-card>
