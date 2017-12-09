@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.0"></a>
+# [1.13.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.12.0...v1.13.0) (2017-12-09)
+
+
+### Bug Fixes
+
+* **posts:** prevent updating property after view check ([ffd9c1b](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/ffd9c1b))
+
+
+### Features
+
+* **themes:** add dark theme support ([34b45e2](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/34b45e2))
+
+
+
 <a name="1.12.0"></a>
 # [1.12.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.11.0...v1.12.0) (2017-12-09)
 
