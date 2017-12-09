@@ -11,7 +11,7 @@
       border-bottom: 1px solid mat-color($background, status-bar);
 
       &.visited {
-        background-color: mat-color($background, app-bar);
+        background-color: mat-color($background, background);
       }
     }
 

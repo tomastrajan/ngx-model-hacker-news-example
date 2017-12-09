@@ -7,6 +7,18 @@
     padding: 5px 20px;
     transition: all 0.3s;
 
+    &.visited {
+      .score {
+        opacity: 0.25;
+      }
+
+      .content {
+        h2 {
+          opacity: 0.45;
+        }
+      }
+    }
+
     &.selected {
       padding: 20px 40px;
       margin: 20px -20px;
