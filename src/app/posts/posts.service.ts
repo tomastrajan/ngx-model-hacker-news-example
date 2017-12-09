@@ -70,6 +70,7 @@ export class PostsService {
     const data = this.model.get();
     const foundPost = data.items.find(item => item.id === post.id);
     foundPost.selected = true;
+    data.isSelected = true;
     this.model.set(data);
     this.selectedPostChange$.next();
     this.loadComments(post);
@@ -79,6 +80,7 @@ export class PostsService {
     const data = this.model.get();
     const foundPost = data.items.find(item => item.selected);
     if (foundPost) {
+      data.isSelected = false;
       foundPost.selected = false;
       foundPost.visited = true;
       this.model.set(data);
@@ -168,6 +170,7 @@ export class PostsService {
 export interface Posts {
   ids?: number[];
   index?: number;
+  isSelected?: boolean;
   items: Post[];
 }
 

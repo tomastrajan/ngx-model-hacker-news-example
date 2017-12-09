@@ -55,7 +55,7 @@ export class PostListComponent implements OnInit, OnDestroy {
     public postsService: PostsService
   ) {}
 
-  get isSelected() {
+  isSelected() {
     return this.postComponents
       ? this.postComponents.some(postComponent => postComponent.post.selected)
       : false;
