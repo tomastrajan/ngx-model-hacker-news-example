@@ -1,4 +1,4 @@
-<mat-card [ngClass]="{ selected: selected }">
+<mat-card [ngClass]="{ selected: post.selected, visited: post.visited && !post.selected }">
   <div class="score"><mat-icon>thumb_up</mat-icon> {{post.score}}</div>
   <div class="content">
     <h2>
@@ -14,16 +14,16 @@
      [href]="post.url" target="_blank">
     <mat-icon>link</mat-icon>
   </a>
-  <button mat-button color="primary" *ngIf="post.descendants > 0 && !selected"
+  <button mat-button color="primary" *ngIf="post.descendants > 0 && !post.selected"
     (click)="select()">
     <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
   </button>
-  <button mat-raised-button color="primary" *ngIf="post.descendants > 0 && selected"
+  <button mat-raised-button color="primary" *ngIf="post.descendants > 0 && post.selected"
     (click)="unselect()">
     <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
   </button>
 </mat-card>
-<div class="comments" *ngIf="selected && post.comments"
+<div class="comments" *ngIf="post.selected && post.comments"
      [@listTransitions]="post.comments.length">
   <nmhne-comment *ngFor="let comment of post.comments; trackBy: postsService.trackByItemId"
                  [comment]="comment"

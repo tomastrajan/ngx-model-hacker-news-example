@@ -68,27 +68,21 @@ export class PostsService {
 
   selectPost(post: Post) {
     const data = this.model.get();
-    data.selectedId = post.id;
+    const foundPost = data.items.find(item => item.id === post.id);
+    foundPost.selected = true;
     this.model.set(data);
     this.selectedPostChange$.next();
     this.loadComments(post);
   }
 
-  selectNextPost(sourcePost: Post, isNext = true) {
-    const data = this.model.get();
-    const nextPostIndex =
-      data.items.findIndex(post => post.id === sourcePost.id) +
-      (isNext ? 1 : -1);
-    const nextPost = data.items[nextPostIndex];
-    if (nextPost) {
-      this.selectPost(nextPost);
-    }
-  }
-
   unselectPost() {
     const data = this.model.get();
-    data.selectedId = null;
-    this.model.set(data);
+    const foundPost = data.items.find(item => item.selected);
+    if (foundPost) {
+      foundPost.selected = false;
+      foundPost.visited = true;
+      this.model.set(data);
+    }
   }
 
   trackByItemId(index: number, item: Post | Comment) {
@@ -174,7 +168,6 @@ export class PostsService {
 export interface Posts {
   ids?: number[];
   index?: number;
-  selectedId?: number;
   items: Post[];
 }
 
@@ -191,6 +184,8 @@ export interface Post {
   kids: number[];
   descendants: number;
   comments?: Comment[];
+  selected?: boolean;
+  visited?: boolean;
 }
 
 export interface Comment {

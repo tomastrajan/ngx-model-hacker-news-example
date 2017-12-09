@@ -2,12 +2,17 @@
 
 @mixin nmhne-posts-component-theme($theme) {
   $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
   $foreground: map-get($theme, foreground);
   $background: map-get($theme, background);
 
   nmhne-post {
     mat-card {
       border-bottom: 1px solid mat-color($background, status-bar);
+
+      &.visited {
+        background-color: mat-color($background, app-bar);
+      }
     }
 
     .score {

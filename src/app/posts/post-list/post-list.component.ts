@@ -1,5 +1,11 @@
-import { Component, OnDestroy, OnInit, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {
+  Component,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  ViewChildren
+} from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
 
@@ -20,10 +26,34 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   @ViewChildren(PostComponent) postComponents;
 
+  @HostListener('window:keyup.escape', ['$event'])
+  handleEscape(event: KeyboardEvent) {
+    event.preventDefault();
+    this.unselectSelectedPostComponent();
+  }
+
+  @HostListener('window:keyup.arrowup', ['$event'])
+  handleUpArrow(event: KeyboardEvent) {
+    event.preventDefault();
+    this.selectNextPostComponent(false);
+  }
+
+  @HostListener('window:keyup.arrowdown', ['$event'])
+  handleDownArrow(event: KeyboardEvent) {
+    event.preventDefault();
+    this.selectNextPostComponent();
+  }
+
   constructor(
     private route: ActivatedRoute,
     public postsService: PostsService
   ) {}
+
+  get isSelected() {
+    return this.postComponents
+      ? this.postComponents.some(postComponent => postComponent.post.selected)
+      : false;
+  }
 
   ngOnInit() {
     this.postsService.init(this.route.routeConfig.path);
@@ -42,11 +72,29 @@ export class PostListComponent implements OnInit, OnDestroy {
   }
 
   onCloseSelectedCommentsClick() {
+    this.unselectSelectedPostComponent();
+  }
+
+  private unselectSelectedPostComponent() {
     this.postComponents.some(postComponent => {
-      if (postComponent.selected) {
+      if (postComponent.post.selected) {
         postComponent.unselect();
         return true;
       }
     });
+  }
+
+  private selectNextPostComponent(isNext = true) {
+    const direction = isNext ? 1 : -1;
+    const index = this.postComponents
+      .toArray()
+      .findIndex(postComponent => postComponent.post.selected);
+    if (index === -1) {
+      return;
+    }
+    const nextPostComponent = this.postComponents.toArray()[index + direction];
+    if (nextPostComponent) {
+      nextPostComponent.select();
+    }
   }
 }
