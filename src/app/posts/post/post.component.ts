@@ -1,9 +1,17 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit
+} from '@angular/core';
 import { DOWN_ARROW, ESCAPE, UP_ARROW } from '@angular/cdk/keycodes';
 
 import { listTransitions } from '@app/core';
 
 import { Post, PostsService } from '../posts.service';
+
+const HIDE_ANIMATION_DURATION = 250;
 
 @Component({
   selector: 'nmhne-post',
@@ -19,27 +27,55 @@ export class PostComponent implements OnInit {
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if (this.selected && event.keyCode === ESCAPE) {
-      this.postsService.unselectPost();
+      this.executeAfterUnselectingPreviousPost();
     }
     if (this.selected && event.keyCode === DOWN_ARROW) {
-      this.postsService.selectNextPost(this.post);
       event.stopImmediatePropagation();
+      event.stopImmediatePropagation();
+      this.executeAfterUnselectingPreviousPost(
+        this.postsService.selectNextPost.bind(this.postsService, this.post)
+      );
     }
     if (this.selected && event.keyCode === UP_ARROW) {
-      this.postsService.selectNextPost(this.post, false);
       event.stopImmediatePropagation();
+      this.executeAfterUnselectingPreviousPost(
+        this.postsService.selectNextPost.bind(
+          this.postsService,
+          this.post,
+          false
+        )
+      );
     }
   }
 
-  constructor(private postsService: PostsService) {}
+  constructor(private postsService: PostsService, private el: ElementRef) {}
 
   ngOnInit() {}
 
   onCommentsClick() {
-    this.postsService.selectPost(this.post);
+    this.executeAfterUnselectingPreviousPost(
+      this.postsService.selectPost.bind(this.postsService, this.post)
+    );
   }
 
   onActiveCommentsClick() {
+    this.executeAfterUnselectingPreviousPost();
+  }
+
+  executeAfterUnselectingPreviousPost(callback?: any) {
     this.postsService.unselectPost();
+    setTimeout(() => {
+      const { top } = this.el.nativeElement.getBoundingClientRect();
+      if (top < 70 || top > window.innerHeight) {
+        this.el.nativeElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'center'
+        });
+      }
+      if (callback) {
+        callback();
+      }
+    }, HIDE_ANIMATION_DURATION);
   }
 }
