@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.0"></a>
+# [1.12.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.11.0...v1.12.0) (2017-12-09)
+
+
+### Bug Fixes
+
+* **help:** tests imports ([8582646](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/8582646))
+* **performance:** deep import rxjs to limit bundle size ([04c95e3](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/04c95e3))
+
+
+### Features
+
+* **help:** add help dialog ([59adf97](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/59adf97))
+* **posts:** make visited post less visible ([c12b328](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/c12b328))
+
+
+
 <a name="1.11.0"></a>
 # [1.11.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.10.0...v1.11.0) (2017-12-09)
 
