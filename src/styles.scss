@@ -24,11 +24,13 @@ $nmhne-theme: mat-light-theme($nmhne-primary, $nmhne-accent, $nmhne-warn);
 
 @import 'styles.scss-theme';
 @import 'app/app.component.scss-theme';
+@import 'app/help/help.component.scss-theme';
 @import 'app/posts/post/post.component.scss-theme';
 
 @mixin custom-components-theme($theme) {
   @include styles-theme($theme);
   @include nmhne-root-theme($theme);
+  @include nmhne-help-theme($theme);
   @include nmhne-posts-component-theme($theme);
 }
 

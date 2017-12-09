@@ -7,9 +7,10 @@ import { SharedModule } from '@app/shared';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HelpComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule
   ],
   providers: [],
+  entryComponents: [HelpComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

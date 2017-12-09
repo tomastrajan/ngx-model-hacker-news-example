@@ -1,9 +1,11 @@
+import { MatDialog } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { ActivationEnd, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators/filter';
 
 import { environment as env } from '@env/environment';
+import { HelpComponent } from '@app/help/help.component';
 
 @Component({
   selector: 'nmhne-root',
@@ -21,7 +23,11 @@ export class AppComponent implements OnInit {
   year = new Date().getFullYear();
   version = env.version;
 
-  constructor(private router: Router, private titleService: Title) {}
+  constructor(
+    private router: Router,
+    private titleService: Title,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.router.events
@@ -36,5 +42,9 @@ export class AppComponent implements OnInit {
           title ? `${title} - ${env.appName}` : env.appName
         );
       });
+  }
+
+  onHelpClick() {
+    this.dialog.open(HelpComponent);
   }
 }

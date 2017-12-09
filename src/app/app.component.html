@@ -7,6 +7,9 @@
           routerLinkActive="active">
     {{item.title}}
   </button>
+  <button mat-icon-button (click)="onHelpClick()">
+    <mat-icon>help_outline</mat-icon>
+  </button>
 </mat-toolbar>
 <div class="content">
   <router-outlet></router-outlet>
