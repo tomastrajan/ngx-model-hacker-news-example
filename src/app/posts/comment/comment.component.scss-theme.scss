@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+
+@mixin nmhne-comment-component-theme($theme) {
+  $foreground: map-get($theme, foreground);
+
+  nmhne-comment {
+    > .author {
+      color: mat-color($foreground, text);
+    }
+
+    > .content {
+      color: mat-color($foreground, text);
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { MatDialog } from '@angular/material';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { ActivationEnd, Router } from '@angular/router';
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators/filter';
 
@@ -23,9 +24,12 @@ export class AppComponent implements OnInit {
   year = new Date().getFullYear();
   version = env.version;
 
+  @HostBinding('class.dark') isDarkTheme = false;
+
   constructor(
     private router: Router,
     private titleService: Title,
+    private overlayContainer: OverlayContainer,
     public dialog: MatDialog
   ) {}
 
@@ -46,5 +50,12 @@ export class AppComponent implements OnInit {
 
   onHelpClick() {
     this.dialog.open(HelpComponent);
+  }
+
+  onDarkThemeClick() {
+    this.isDarkTheme = !this.isDarkTheme;
+    this.overlayContainer
+      .getContainerElement()
+      .classList[this.isDarkTheme ? 'add' : 'remove']('dark');
   }
 }

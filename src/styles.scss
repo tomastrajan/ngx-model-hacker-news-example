@@ -19,20 +19,35 @@ a {
 $nmhne-primary: mat-palette($mat-deep-orange);
 $nmhne-accent: mat-palette($mat-amber);
 $nmhne-warn: mat-palette($mat-red);
-
 $nmhne-theme: mat-light-theme($nmhne-primary, $nmhne-accent, $nmhne-warn);
+
+$nmhne-dark-primary: mat-palette($mat-deep-orange, 900, 500, 800);
+$nmhne-dark-accent: mat-palette($mat-amber, 700, 300, 900);
+$nmhne-dark-warn: mat-palette($mat-red);
+$nmhne-dark-theme: mat-dark-theme(
+  $nmhne-dark-primary,
+  $nmhne-dark-accent,
+  $nmhne-dark-warn
+);
 
 @import 'styles.scss-theme';
 @import 'app/app.component.scss-theme';
 @import 'app/help/help.component.scss-theme';
 @import 'app/posts/post/post.component.scss-theme';
+@import 'app/posts/comment/comment.component.scss-theme';
 
 @mixin custom-components-theme($theme) {
   @include styles-theme($theme);
   @include nmhne-root-theme($theme);
-  @include nmhne-help-theme($theme);
+  @include nmhne-help-component-theme($theme);
   @include nmhne-posts-component-theme($theme);
+  @include nmhne-comment-component-theme($theme);
 }
 
 @include angular-material-theme($nmhne-theme);
 @include custom-components-theme($nmhne-theme);
+
+.dark {
+  @include angular-material-theme($nmhne-dark-theme);
+  @include custom-components-theme($nmhne-dark-theme);
+}

@@ -1,26 +1,27 @@
 @import '~@angular/material/theming';
 
-@mixin nmhne-help-theme($theme) {
+@mixin nmhne-help-component-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
   $background: map-get($theme, background);
 
   nmhne-help {
     .highlight {
-      color: mat-color($primary);
+      color: mat-color($primary, lighter);
     }
     .branding {
       background-color: mat-color($primary);
-      color: mat-color($background, card);
+      color: mat-color($primary, default-contrast);
 
       span {
-        border: 2px solid mat-color($background, card);
+        border: 2px solid mat-color($primary, default-contrast);
       }
     }
     .content {
       code {
         background-color: mat-color($accent);
-        border: 1px solid mat-color($accent, darker);
+        color: mat-color($accent, default-contrast);
       }
     }
   }

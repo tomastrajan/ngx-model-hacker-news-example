@@ -5,8 +5,6 @@
   $background: map-get($theme, background);
 
   body {
-    background-color: mat-color($background, app-bar);
-
     a {
       color: mat-color($primary);
 
