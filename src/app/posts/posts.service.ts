@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { tap } from 'rxjs/operators/tap';
 import { from } from 'rxjs/observable/from';
-import { concatMap } from 'rxjs/operators/concatMap';
 import { mergeMap } from 'rxjs/operators/mergeMap';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 
@@ -122,7 +121,7 @@ export class PostsService {
 
   private getItems(ids: number[]): Observable<Post> {
     return from(ids).pipe(
-      concatMap(id => <Observable<Post>>this.backend.get(`item/${id}.json`))
+      mergeMap(id => <Observable<Post>>this.backend.get(`item/${id}.json`))
     );
   }
 
