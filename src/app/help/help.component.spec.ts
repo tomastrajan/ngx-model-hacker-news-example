@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatTabsModule } from '@angular/material';
 
 import { HelpComponent } from './help.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('HelpComponent', () => {
   let component: HelpComponent;
@@ -10,7 +11,7 @@ describe('HelpComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [MatIconModule],
+        imports: [MatIconModule, MatTabsModule, NoopAnimationsModule],
         declarations: [HelpComponent]
       }).compileComponents();
     })
