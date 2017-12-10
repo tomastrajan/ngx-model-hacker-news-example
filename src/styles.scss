@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+:focus {
+  outline: 0;
+}
+
 html,
 body {
   height: 100%;
@@ -10,18 +14,22 @@ body {
 
 a {
   text-decoration: none;
+
+  &:hover {
+    font-weight: bold;
+  }
 }
 
 @import '~@angular/material/theming';
 
 @include mat-core();
 
-$nmhne-primary: mat-palette($mat-deep-orange);
+$nmhne-primary: mat-palette($mat-deep-orange, 500, 400, 800);
 $nmhne-accent: mat-palette($mat-amber);
 $nmhne-warn: mat-palette($mat-red);
 $nmhne-theme: mat-light-theme($nmhne-primary, $nmhne-accent, $nmhne-warn);
 
-$nmhne-dark-primary: mat-palette($mat-deep-orange, 900, 500, 800);
+$nmhne-dark-primary: mat-palette($mat-deep-orange, 800, 500, 900);
 $nmhne-dark-accent: mat-palette($mat-amber, 700, 300, 900);
 $nmhne-dark-warn: mat-palette($mat-red);
 $nmhne-dark-theme: mat-dark-theme(

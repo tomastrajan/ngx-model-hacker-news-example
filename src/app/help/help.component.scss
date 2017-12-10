@@ -17,6 +17,14 @@
   }
 
   .content {
+    margin: 0 -24px;
+
+    .tab-content {
+      padding: 0 24px;
+      height: 260px;
+      max-width: 500px;
+    }
+
     h2 {
       margin: 25px 0 5px 0;
     }
