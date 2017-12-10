@@ -112,6 +112,11 @@ export class PostsService {
     post.timeSince = this.time.timeSince(post.time);
     const data = this.model.get();
     data.items.push(post);
+    data.items.sort((a, b) => {
+      const aId = data.ids.findIndex(id => id === a.id);
+      const bId = data.ids.findIndex(id => id === b.id);
+      return aId - bId;
+    });
     this.model.set(data);
   }
 
