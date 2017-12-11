@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.14.0"></a>
+# [1.14.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.13.0...v1.14.0) (2017-12-11)
+
+
+### Bug Fixes
+
+* **help:** tests imports ([1bcfd35](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/1bcfd35))
+* **loading:** add loading indicator ([102a74c](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/102a74c))
+* **posts:** sort posts to preserve correct order ([1d38d97](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/1d38d97))
+* **shared:** add missing tabs module ([87c5368](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/87c5368))
+
+
+### Features
+
+* **favicon:** update favicon ([b163e09](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/b163e09))
+* **help:** author info ([9cecdf4](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/9cecdf4))
+* **posts:** enhance performance by making requests run in parallel ([b6a3131](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/b6a3131))
+
+
+
 <a name="1.13.0"></a>
 # [1.13.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.12.0...v1.13.0) (2017-12-09)
 
