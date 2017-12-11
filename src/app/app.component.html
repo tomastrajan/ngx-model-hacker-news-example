@@ -13,6 +13,9 @@
   <button mat-icon-button (click)="onDarkThemeClick()">
     <mat-icon>lightbulb_outline</mat-icon>
   </button>
+  <mat-progress-bar color="accent" mode="indeterminate"
+    *ngIf="backendService.isLoading$ | async">
+  </mat-progress-bar>
 </mat-toolbar>
 <div class="main-content">
   <router-outlet></router-outlet>

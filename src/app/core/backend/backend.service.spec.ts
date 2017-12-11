@@ -1,12 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxModelModule } from 'ngx-model';
 
 import { BackendService } from './backend.service';
 
 describe('BackendService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, NgxModelModule],
       providers: [BackendService]
     });
   });

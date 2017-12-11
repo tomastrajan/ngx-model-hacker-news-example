@@ -26,6 +26,12 @@
     button {
       margin: 0 0 0 10px;
     }
+
+    mat-progress-bar {
+      position: absolute;
+      top: 64px;
+      left: 0;
+    }
   }
 
   .main-content {

@@ -5,8 +5,10 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators/filter';
 
+import { BackendService } from '@app/core';
 import { environment as env } from '@env/environment';
-import { HelpComponent } from '@app/help/help.component';
+
+import { HelpComponent } from './help/help.component';
 
 @Component({
   selector: 'nmhne-root',
@@ -30,7 +32,8 @@ export class AppComponent implements OnInit {
     private router: Router,
     private titleService: Title,
     private overlayContainer: OverlayContainer,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public backendService: BackendService
   ) {}
 
   ngOnInit(): void {
