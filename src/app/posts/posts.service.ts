@@ -138,13 +138,16 @@ export class PostsService {
       .pipe(takeUntil(this.selectedPostChange$))
       .subscribe((comment: any) => {
         const data = this.model.get();
-        const item = this.findParent(data.items, comment.parent);
-        if (!item.comments) {
-          item.comments = [];
+        const parentPostOrComment = this.findParent(data.items, comment.parent);
+        if (!parentPostOrComment.comments) {
+          parentPostOrComment.comments = [];
         }
-        if (!comment.deleted && !item.comments.some(c => c.id === comment.id)) {
+        if (
+          !comment.deleted &&
+          !parentPostOrComment.comments.some(c => c.id === comment.id)
+        ) {
           comment.timeSince = this.time.timeSince(comment.time);
-          item.comments.push(comment);
+          parentPostOrComment.comments.push(comment);
         }
         this.model.set(data);
         if (comment.kids) {
