@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatIconModule,
     MatDialogModule,
     MatTabsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatMenuModule,
+    MatTooltipModule
   ],
   declarations: [],
   exports: [
@@ -28,7 +32,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatIconModule,
     MatDialogModule,
     MatTabsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatMenuModule,
+    MatTooltipModule
   ]
 })
 export class SharedModule {}

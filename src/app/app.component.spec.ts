@@ -5,13 +5,14 @@ import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 
 import { AppComponent } from './app.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 describe('AppComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
         imports: [RouterTestingModule, SharedModule, CoreModule],
-        declarations: [AppComponent]
+        declarations: [AppComponent, NotificationsComponent]
       }).compileComponents();
     })
   );

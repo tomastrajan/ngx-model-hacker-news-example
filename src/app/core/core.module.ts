@@ -6,10 +6,11 @@ import { NgxModelModule } from 'ngx-model';
 import { BackendService } from './backend/backend.service';
 import { TimeService } from './util/time.service';
 import { ScrollService } from './util/scroll.service';
+import { NotificationsService } from './notifications/notifications.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, NgxModelModule],
   declarations: [],
-  providers: [BackendService, TimeService, ScrollService]
+  providers: [BackendService, NotificationsService, TimeService, ScrollService]
 })
 export class CoreModule {}

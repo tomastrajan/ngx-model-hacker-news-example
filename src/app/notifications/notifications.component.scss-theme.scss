@@ -1,0 +1,43 @@
+@import '~@angular/material/theming';
+
+@mixin nmhne-notifications-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  nmhne-notifications {
+    .notifications-count {
+      background-color: mat-color($background, card);
+      color: mat-color($foreground, text);
+    }
+  }
+
+  .notification-popup {
+    .notification {
+      &.error {
+        > mat-icon {
+          color: mat-color($warn);
+        }
+      }
+      &.warning {
+        > mat-icon {
+          color: mat-color($accent);
+        }
+      }
+
+      .close {
+        color: mat-color($foreground, slider-off);
+
+        &:hover {
+          color: mat-color($foreground, icon);
+        }
+      }
+    }
+
+    .empty {
+      color: mat-color($foreground, disabled);
+    }
+  }
+}

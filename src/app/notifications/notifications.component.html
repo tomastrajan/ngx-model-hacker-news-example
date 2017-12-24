@@ -1,0 +1,39 @@
+<button mat-icon-button
+        *ngIf="!notifications.length"
+        [matMenuTriggerFor]="notificationsPopup">
+  <mat-icon>notifications_none</mat-icon>
+</button>
+<button mat-icon-button
+        *ngIf="notifications.length"
+        [matMenuTriggerFor]="notificationsPopup"
+        color="accent" >
+  <mat-icon>notifications_active</mat-icon>
+  <div class="notifications-count">{{notifications.length}}</div>
+</button>
+<mat-menu class="notification-popup"
+          overlapTrigger="false"
+          #notificationsPopup="matMenu">
+  <h2>Notifications</h2>
+  <div *ngFor="let notification of notifications"
+       [class]="'notification ' + notification.type.toLowerCase()"
+       [matTooltip]="notification.details"
+       matTooltipPosition="left">
+    <mat-icon *ngIf="notification.type === 'ERROR'">error</mat-icon>
+    <mat-icon *ngIf="notification.type === 'WARNING'">warning</mat-icon>
+    <mat-icon *ngIf="notification.type === 'INFO'">info</mat-icon>
+    <span>{{notification.message}}</span>
+    <button mat-icon-button class="close"
+            (click)="onCloseClick(notification)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div *ngIf="notifications.length" (click)="onCloseAllClick()">
+    <button mat-button class="close-all">
+      Close all
+    </button>
+  </div>
+  <div *ngIf="!notifications.length" class="empty">
+    <mat-icon>check_circle</mat-icon>
+    No new notifications...
+  </div>
+</mat-menu>

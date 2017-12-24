@@ -7,12 +7,13 @@
           routerLinkActive="active">
     {{item.title}}
   </button>
-  <button mat-icon-button (click)="onHelpClick()">
-    <mat-icon>help_outline</mat-icon>
-  </button>
   <button mat-icon-button (click)="onDarkThemeClick()">
     <mat-icon>lightbulb_outline</mat-icon>
   </button>
+  <button mat-icon-button (click)="onHelpClick()">
+    <mat-icon>help_outline</mat-icon>
+  </button>
+  <nmhne-notifications></nmhne-notifications>
   <mat-progress-bar color="accent" mode="indeterminate"
     *ngIf="backendService.isLoading$ | async">
   </mat-progress-bar>

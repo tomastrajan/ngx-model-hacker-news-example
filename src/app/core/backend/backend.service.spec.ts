@@ -3,12 +3,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxModelModule } from 'ngx-model';
 
 import { BackendService } from './backend.service';
+import { NotificationsService } from '../notifications/notifications.service';
 
 describe('BackendService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, NgxModelModule],
-      providers: [BackendService]
+      providers: [NotificationsService, BackendService]
     });
   });
 

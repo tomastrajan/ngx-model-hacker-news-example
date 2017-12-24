@@ -8,9 +8,10 @@ import { SharedModule } from '@app/shared';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelpComponent } from './help/help.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
-  declarations: [AppComponent, HelpComponent],
+  declarations: [AppComponent, HelpComponent, NotificationsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

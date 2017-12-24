@@ -1,0 +1,52 @@
+:host {
+  position: relative;
+}
+.notifications-count {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  line-height: 16px;
+  pointer-events: none;
+  position: absolute;
+  left: 2px;
+  top: 5px;
+}
+
+::ng-deep .notification-popup {
+  .mat-menu-content {
+    padding: 20px;
+  }
+
+  .notification {
+    display: flex;
+    min-height: 40px;
+    min-width: 200px;
+
+    > mat-icon {
+      position: relative;
+      top: 8px;
+    }
+
+    > span {
+      flex: 1 1 auto;
+      padding: 10px 5px 10px 10px;
+    }
+
+    .close {
+      float: right;
+    }
+  }
+
+  .close-all {
+    margin: 15px 0 0 0;
+    width: 100%;
+  }
+
+  .empty {
+    mat-icon {
+      position: relative;
+      top: 6px;
+    }
+  }
+}
