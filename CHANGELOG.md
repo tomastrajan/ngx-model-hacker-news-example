@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.15.0"></a>
+# [1.15.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.14.0...v1.15.0) (2017-12-24)
+
+
+### Features
+
+* **help:** show keyboard shortcuts as first opened help tab ([ef59ae7](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/ef59ae7))
+* **notifications:** add notifications support ([8af80a2](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/8af80a2))
+* **notifications:** change emoty notifications icon ([ba76708](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/ba76708))
+
+
+
 <a name="1.14.0"></a>
 # [1.14.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.13.0...v1.14.0) (2017-12-11)
 
