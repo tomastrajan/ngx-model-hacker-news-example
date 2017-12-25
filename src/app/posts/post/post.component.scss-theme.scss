@@ -20,6 +20,9 @@
         color: mat-color($primary);
       }
     }
+    .empty-comments {
+      color: mat-color($foreground, disabled);
+    }
     h2 {
       a {
         color: mat-color($foreground, text);

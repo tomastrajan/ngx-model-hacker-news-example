@@ -22,6 +22,9 @@
     (click)="unselect()">
     <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
   </button>
+  <button mat-button *ngIf="!post.descendants" class="empty-comments">
+    <mat-icon>comment</mat-icon>
+  </button>
 </mat-card>
 <div class="comments" *ngIf="post.selected && post.comments"
      [@listTransitions]="post.comments.length">
