@@ -15,6 +15,9 @@
   }
 
   .notification-popup {
+    h2 {
+      color: mat-color($foreground, text);
+    }
     .notification {
       &.error {
         > mat-icon {
