@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.16.0"></a>
+# [1.16.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.15.0...v1.16.0) (2017-12-25)
+
+
+### Bug Fixes
+
+* **notifications:** dark theme heading color ([3715094](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/3715094))
+
+
+### Features
+
+* **posts:** show disabled comments icon to preserve layout when no comments are available ([374dce4](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/374dce4))
+
+
+
 <a name="1.15.0"></a>
 # [1.15.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.14.0...v1.15.0) (2017-12-24)
 
