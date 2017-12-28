@@ -6,6 +6,7 @@ import { tap } from 'rxjs/operators/tap';
 import { from } from 'rxjs/observable/from';
 import { mergeMap } from 'rxjs/operators/mergeMap';
 import { takeUntil } from 'rxjs/operators/takeUntil';
+import { delay } from 'rxjs/operators/delay';
 
 import { BackendService, TimeService } from '@app/core';
 
@@ -135,7 +136,7 @@ export class PostsService {
       return;
     }
     this.getItems(source.kids)
-      .pipe(takeUntil(this.selectedPostChange$))
+      .pipe(takeUntil(this.selectedPostChange$), delay(10))
       .subscribe((comment: any) => {
         const data = this.model.get();
         const parentPostOrComment = this.findParent(data.items, comment.parent);
