@@ -9,7 +9,8 @@
     transition: all 0.3s;
 
     &.visited {
-      .score, .type {
+      .score,
+      .type {
         opacity: 0.25;
       }
 
@@ -96,7 +97,6 @@
         }
       }
     }
-
   }
   .comments {
     padding: 0 300px 40px 133px;
