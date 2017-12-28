@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnInit } from '@angular/core';
 
 import { listTransitions, ScrollService } from '@app/core';
 
-import { Post, PostsService } from '../posts.service';
+import { Item, PostsService } from '../posts.service';
 
 const HIDE_ANIMATION_DURATION = 300;
 
@@ -14,7 +14,7 @@ const HIDE_ANIMATION_DURATION = 300;
 })
 export class PostComponent implements OnInit {
   @Input() index: number;
-  @Input() post: Post;
+  @Input() post: Item;
 
   constructor(
     private postsService: PostsService,

@@ -2,7 +2,7 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
 import { listTransitions } from '@app/core';
 
-import { Comment, PostsService } from '../posts.service';
+import { Item, PostsService } from '../posts.service';
 
 @Component({
   selector: 'nmhne-comment',
@@ -11,7 +11,7 @@ import { Comment, PostsService } from '../posts.service';
   animations: [listTransitions]
 })
 export class CommentComponent implements OnInit {
-  @Input() comment: Comment;
+  @Input() comment: Item;
   @Input()
   @HostBinding('class.root')
   root = false;

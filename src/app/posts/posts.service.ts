@@ -52,7 +52,7 @@ export class PostsService {
         mergeMap((ids: number[]) => this.getItems(ids.slice(0, PAGE_SIZE))),
         takeUntil(this.resourceChange$)
       )
-      .subscribe((post: Post) => this.addPost(post));
+      .subscribe((post: Item) => this.addPost(post));
   }
 
   loadMorePosts() {
@@ -62,10 +62,10 @@ export class PostsService {
     this.model.set(data);
     this.getItems(ids)
       .pipe(takeUntil(this.resourceChange$))
-      .subscribe((post: Post) => this.addPost(post));
+      .subscribe((post: Item) => this.addPost(post));
   }
 
-  selectPost(post: Post) {
+  selectPost(post: Item) {
     const data = this.model.get();
     const foundPost = data.items.find(item => item.id === post.id);
     foundPost.selected = true;
@@ -86,13 +86,13 @@ export class PostsService {
     }
   }
 
-  trackByItemId(index: number, item: Post | Comment) {
+  trackByItemId(index: number, item: Item) {
     return item.id;
   }
 
-  getDescendantCount(comment: Comment) {
+  getDescendantCount(comment: Item) {
     let count = 0;
-    function countRecursive(comments: Comment[]) {
+    function countRecursive(comments: Item[]) {
       if (!comments || !comments.length) {
         return;
       }
@@ -103,7 +103,7 @@ export class PostsService {
     return count;
   }
 
-  private addPost(post: Post) {
+  private addPost(post: Item) {
     post.domain = (post.url || '')
       .slice()
       .replace(/https?:\/\//, '')
@@ -124,13 +124,13 @@ export class PostsService {
     return <Observable<number[]>>this.backend.get(RESOURCES[resource]);
   }
 
-  private getItems(ids: number[]): Observable<Post> {
+  private getItems(ids: number[]): Observable<Item> {
     return from(ids).pipe(
-      mergeMap(id => <Observable<Post>>this.backend.get(`item/${id}.json`))
+      mergeMap(id => <Observable<Item>>this.backend.get(`item/${id}.json`))
     );
   }
 
-  private loadComments(source: Post | Comment) {
+  private loadComments(source: Item) {
     if (!source.kids || !source.kids.length) {
       return;
     }
@@ -156,9 +156,9 @@ export class PostsService {
       });
   }
 
-  private findParent(items: Post[] | Comment[], itemId: number) {
+  private findParent(items: Item[], itemId: number) {
     let result = null;
-    function findRecursive(source: Post[] | Comment[]) {
+    function findRecursive(source: Item[]) {
       for (let i = 0; i < source.length; i++) {
         if (source[i].id === itemId) {
           result = source[i];
@@ -178,35 +178,25 @@ export interface Posts {
   ids?: number[];
   index?: number;
   isSelected?: boolean;
-  items: Post[];
+  items: Item[];
 }
 
-export interface Post {
+export interface Item {
   id: number;
-  title: string;
-  url: string;
-  domain: string;
   by: string;
-  type: string;
   score: number;
   time: number;
   timeSince: string;
   kids: number[];
-  descendants: number;
-  comments?: Comment[];
+  descendants?: number;
+  comments?: Item[];
   selected?: boolean;
   visited?: boolean;
-}
-
-export interface Comment {
-  id: number;
-  parent: number;
-  kids: number[];
-  text: string;
-  score: number;
-  by: string;
-  deleted: boolean;
-  time: number;
-  timeSince: string;
-  comments?: Comment[];
+  title?: string;
+  url?: string;
+  domain?: string;
+  type?: string;
+  parent?: number;
+  text?: string;
+  deleted?: boolean;
 }
