@@ -3,12 +3,13 @@
 
   mat-card {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     padding: 5px 20px;
     transition: all 0.3s;
 
     &.visited {
-      .score {
+      .score, .type {
         opacity: 0.25;
       }
 
@@ -39,7 +40,9 @@
     }
 
     .content {
-      flex: 1 1;
+      flex: 10 1;
+      padding: 8px 0 0 5px;
+      min-width: 50%;
 
       mat-icon {
         margin: 0 5px 0 0;
@@ -47,6 +50,7 @@
 
       h2 {
         font-size: 14px;
+        line-height: 20px;
         position: relative;
         margin: 0;
 
@@ -61,32 +65,38 @@
       }
 
       p {
-        position: relative;
-        top: -4px;
         font-size: 13px;
         margin: 0;
         opacity: 0.5;
-        padding: 0 0 0 32px;
       }
     }
 
-    .link-action {
-      margin: 0 5px 0 0;
-      mat-icon {
-        top: 9px;
+    .actions {
+      display: flex;
+      flex: 1 1;
+      justify-content: center;
+      height: 48px;
+
+      > * {
+        flex: 1 1;
+      }
+
+      .link-action {
+        margin: 0 5px 0 0;
+      }
+
+      button {
+        mat-icon {
+          top: 1px;
+        }
+
+        span {
+          position: relative;
+          top: 1px;
+        }
       }
     }
 
-    button {
-      mat-icon {
-        top: 1px;
-      }
-
-      span {
-        position: relative;
-        top: 1px;
-      }
-    }
   }
   .comments {
     padding: 0 300px 40px 133px;

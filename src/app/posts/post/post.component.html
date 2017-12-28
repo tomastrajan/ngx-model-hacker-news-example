@@ -1,30 +1,36 @@
 <mat-card [ngClass]="{ selected: post.selected, visited: post.visited && !post.selected }">
   <div class="score"><mat-icon>thumb_up</mat-icon> {{post.score}}</div>
+  <div class="type">
+    <mat-icon *ngIf="!post.domain.length">person_outline</mat-icon>
+    <mat-icon *ngIf="post.domain.length">link</mat-icon>
+  </div>
   <div class="content">
     <h2>
-      <a *ngIf="!post.domain.length"><mat-icon>person_outline</mat-icon> {{post.title}}</a>
+      <a *ngIf="!post.domain.length">{{post.title}}</a>
       <a *ngIf="post.domain.length" [href]="post.url" target="_blank">
-        <mat-icon >link</mat-icon> {{post.title}}
+        {{post.title}}
       </a>
       <span *ngIf="post.domain.length">({{post.domain}})</span>
     </h2>
     <p>#{{index}} by {{post.by}} {{post.timeSince}} ago</p>
   </div>
-  <a class="link-action" mat-button color="accent" *ngIf="post.domain.length"
-     [href]="post.url" target="_blank">
-    <mat-icon>link</mat-icon>
-  </a>
-  <button mat-button color="primary" *ngIf="post.descendants > 0 && !post.selected"
-    (click)="select()">
-    <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
-  </button>
-  <button mat-raised-button color="primary" *ngIf="post.descendants > 0 && post.selected"
-    (click)="unselect()">
-    <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
-  </button>
-  <button mat-button *ngIf="!post.descendants" class="empty-comments">
-    <mat-icon>comment</mat-icon>
-  </button>
+  <div class="actions">
+    <a class="link-action" mat-button color="accent" *ngIf="post.domain.length"
+       [href]="post.url" target="_blank">
+      <mat-icon>link</mat-icon>
+    </a>
+    <button mat-button color="primary" *ngIf="post.descendants > 0 && !post.selected"
+      (click)="select()">
+      <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
+    </button>
+    <button mat-raised-button color="primary" *ngIf="post.descendants > 0 && post.selected"
+      (click)="unselect()">
+      <mat-icon>comment</mat-icon> <span>{{post.descendants}}</span>
+    </button>
+    <button mat-button *ngIf="!post.descendants" class="empty-comments">
+      <mat-icon>comment</mat-icon>
+    </button>
+  </div>
 </mat-card>
 <div class="comments" *ngIf="post.selected && post.comments"
      [@listTransitions]="post.comments.length">
