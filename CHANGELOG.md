@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.17.0"></a>
+# [1.17.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.16.0...v1.17.0) (2017-12-28)
+
+
+### Features
+
+* **core:** cache get http responses for better performance ([b8810da](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/b8810da))
+
+
+
 <a name="1.16.0"></a>
 # [1.16.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.15.0...v1.16.0) (2017-12-25)
 

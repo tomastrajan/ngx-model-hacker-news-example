@@ -1,10 +1,10 @@
 {
   "name": "ngx-model-hacker-news-example",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
+    "start": "ng serve --open --deploy-url /something",
     "build": "ng build",
     "test": "ng test --browser ChromeHeadless --single-run",
     "watch": "ng test --browsers ChromeHeadless -sm=false",
