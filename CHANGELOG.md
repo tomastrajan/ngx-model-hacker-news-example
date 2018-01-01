@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.19.0"></a>
+# [1.19.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.18.0...v1.19.0) (2018-01-01)
+
+
+### Features
+
+* **posts:** format quoted text in comments ([29e3304](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/29e3304))
+
+
+
 <a name="1.18.0"></a>
 # [1.18.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.17.0...v1.18.0) (2017-12-28)
 
