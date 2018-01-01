@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:focus {
+  outline: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+blockquote {
+  margin: 0 0 0 2px;
+  padding: 2px 0 2px 8px;
+  border-left: 3px solid;
+}

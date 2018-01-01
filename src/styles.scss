@@ -1,24 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-:focus {
-  outline: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-a {
-  text-decoration: none;
-
-  &:hover {
-    font-weight: bold;
-  }
-}
+@import 'styles-base.scss';
 
 @import '~@angular/material/theming';
 
@@ -38,7 +18,7 @@ $nmhne-dark-theme: mat-dark-theme(
   $nmhne-dark-warn
 );
 
-@import 'styles.scss-theme';
+@import 'styles-base.scss-theme';
 @import 'app/app.component.scss-theme';
 @import 'app/help/help.component.scss-theme';
 @import 'app/notifications/notifications.component.scss-theme';

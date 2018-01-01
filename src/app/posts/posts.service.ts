@@ -137,7 +137,7 @@ export class PostsService {
     }
     this.getItems(source.kids)
       .pipe(takeUntil(this.selectedPostChange$), delay(10))
-      .subscribe((comment: any) => {
+      .subscribe((comment: Item) => {
         const data = this.model.get();
         const parentPostOrComment = this.findParent(data.items, comment.parent);
         if (!parentPostOrComment.comments) {
@@ -148,6 +148,7 @@ export class PostsService {
           !parentPostOrComment.comments.some(c => c.id === comment.id)
         ) {
           comment.timeSince = this.time.timeSince(comment.time);
+          comment.text = this.formatCommentQuotedText(comment.text);
           parentPostOrComment.comments.push(comment);
         }
         this.model.set(data);
@@ -172,6 +173,18 @@ export class PostsService {
     }
     findRecursive(items);
     return result;
+  }
+
+  private formatCommentQuotedText(text: string) {
+    return text
+      .split(/<p>/)
+      .map(
+        token =>
+          token.indexOf('&gt;') === 0
+            ? (token = `<blockquote>${token.replace('&gt;', '')}</blockquote>`)
+            : token
+      )
+      .join('<p>');
   }
 }
 
