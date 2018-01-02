@@ -9,7 +9,7 @@ export const environment = {
   production: false,
   version: packageJson.version,
   envName: 'DEV',
-  appName: 'ngx-model Hacker News Example',
+  appName: 'HAKAFAKA the Best Hacker News Client',
   api: {
     url: 'https://hacker-news.firebaseio.com/v0/'
   }
