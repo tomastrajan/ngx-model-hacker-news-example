@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.21.0"></a>
+# [1.21.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.20.0...v1.21.0) (2018-01-02)
+
+
+### Features
+
+* **index:** add GA ([9384ba8](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/9384ba8))
+* **index:** adjust title ([25f8e73](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/25f8e73))
+
+
+
 <a name="1.20.0"></a>
 # [1.20.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.19.0...v1.20.0) (2018-01-02)
 
