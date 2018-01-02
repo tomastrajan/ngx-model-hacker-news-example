@@ -1,3 +1,5 @@
+@import 'styles-responsive';
+
 :host {
   display: block;
 
@@ -99,6 +101,15 @@
     }
   }
   .comments {
-    padding: 0 300px 40px 133px;
+    transition: all 0.5s ease-out;
+    padding: 0 0 40px 20px;
+
+    @include for-size($size-tablet-portrait-up) {
+      padding: 0 110px 40px 55px;
+    }
+
+    @include for-size($size-tablet-landscape-up) {
+      padding: 0 300px 40px 133px;
+    }
   }
 }
