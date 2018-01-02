@@ -1,3 +1,5 @@
+@import 'styles-responsive';
+
 :host {
   height: 100%;
   display: flex;
@@ -12,10 +14,18 @@
       outline: 0;
       cursor: pointer;
 
-      span {
+      .logo {
         padding: 10px 18px 10px 15px;
         letter-spacing: -5px;
         margin: 0 10px 0 0;
+      }
+
+      .title-long {
+        display: none;
+
+        @include for-size($size-tablet-landscape-up) {
+          display: inline;
+        }
       }
     }
 
@@ -26,6 +36,14 @@
     button,
     nmhne-notifications {
       margin: 0 0 0 10px;
+    }
+
+    .nav-button {
+      display: none;
+
+      @include for-size($size-tablet-landscape-up) {
+        display: block;
+      }
     }
 
     mat-progress-bar {

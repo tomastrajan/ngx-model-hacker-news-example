@@ -1,7 +1,10 @@
 <mat-toolbar color="primary">
-  <span class="title" routerLink=""><span>HF</span> HAKAFAKA</span>
+  <span class="title" routerLink="">
+    <span class="logo">HF</span> <span class="title-long">HAKAFAKA</span>
+  </span>
   <span class="spacer"></span>
   <button mat-button
+          class="nav-button"
           *ngFor="let item of menu"
           [routerLink]="item.path"
           routerLinkActive="active">
