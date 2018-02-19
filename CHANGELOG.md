@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.22.0"></a>
+# [1.22.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.21.0...v1.22.0) (2018-02-19)
+
+
+### Features
+
+* **app:** add responsive menu, enhance responsive styles ([998387c](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/998387c))
+* **dependencies:** bump angular cli ([b326b0f](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/b326b0f))
+* **help:** remove BTC address ([fd08741](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/fd08741))
+* **index:** add mobile status bar related meta tags ([a6b0348](https://github.com/tomastrajan/ngx-model-hacker-news-example/commit/a6b0348))
+
+
+
 <a name="1.21.0"></a>
 # [1.21.0](https://github.com/tomastrajan/ngx-model-hacker-news-example/compare/v1.20.0...v1.21.0) (2018-01-02)
 
