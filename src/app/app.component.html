@@ -1,4 +1,17 @@
 <mat-toolbar color="primary">
+  <button class="menu" mat-icon-button [matMenuTriggerFor]="responsiveMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu class="responsive-menu-popup"
+            overlapTrigger="false"
+            #responsiveMenu="matMenu">
+    <button mat-menu-item *ngFor="let item of menu"
+            [routerLink]="item.path"
+            routerLinkActive="active">
+      {{item.title}}
+    </button>
+    <button mat-menu-item (click)="onHelpClick()">Help</button>
+  </mat-menu>
   <span class="title" routerLink="">
     <span class="logo">HF</span> <span class="title-long">HAKAFAKA</span>
   </span>
@@ -13,7 +26,7 @@
   <button mat-icon-button (click)="onDarkThemeClick()">
     <mat-icon>lightbulb_outline</mat-icon>
   </button>
-  <button mat-icon-button (click)="onHelpClick()">
+  <button class="help" mat-icon-button (click)="onHelpClick()">
     <mat-icon>help_outline</mat-icon>
   </button>
   <nmhne-notifications></nmhne-notifications>

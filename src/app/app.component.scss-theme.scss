@@ -34,4 +34,11 @@
       }
     }
   }
+
+  .responsive-menu-popup {
+    .active {
+      color: mat-color($accent, default-contrast);
+      background-color: mat-color($accent);
+    }
+  }
 }

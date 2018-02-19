@@ -1,10 +1,20 @@
+@import 'styles-responsive';
+
 :host {
   display: block;
   padding: 40px;
 
+  @include for-size($size-phone-only) {
+    padding: 20px;
+  }
+
   .action {
     padding: 60px 0 20px 0;
     text-align: center;
+
+    @include for-size($size-phone-only) {
+      padding: 40px 0 20px 0;
+    }
   }
 
   .action-comments {
@@ -12,6 +22,11 @@
     bottom: 60px;
     right: 73px;
     z-index: 10;
+
+    @include for-size($size-phone-only) {
+      bottom: 30px;
+      right: 30px;
+    }
 
     mat-icon {
       transition: all 0.3s;

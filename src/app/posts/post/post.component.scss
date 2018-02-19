@@ -26,6 +26,11 @@
     &.selected {
       padding: 20px 40px;
       margin: 20px -20px;
+
+      @include for-size($size-phone-only) {
+        padding: 10px 20px;
+        margin: 10px -10px;
+      }
     }
 
     mat-icon {
@@ -80,6 +85,10 @@
       justify-content: center;
       height: 48px;
 
+      @include for-size($size-phone-only) {
+        margin: 10px 0 0 0;
+      }
+
       > * {
         flex: 1 1;
       }
@@ -102,7 +111,8 @@
   }
   .comments {
     transition: all 0.5s ease-out;
-    padding: 0 0 40px 20px;
+    padding: 0 0 40px 40px;
+    overflow: hidden;
 
     @include for-size($size-tablet-portrait-up) {
       padding: 0 110px 40px 55px;
