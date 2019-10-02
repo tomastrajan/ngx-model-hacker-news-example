@@ -11,15 +11,13 @@ describe('PostComponent', () => {
   let component: PostComponent;
   let fixture: ComponentFixture<PostComponent>;
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        imports: [CoreModule, SharedModule],
-        declarations: [PostComponent, CommentComponent],
-        providers: [PostsService]
-      }).compileComponents();
-    })
-  );
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [CoreModule, SharedModule],
+      declarations: [PostComponent, CommentComponent],
+      providers: [PostsService]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PostComponent);
