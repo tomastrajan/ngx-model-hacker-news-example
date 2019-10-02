@@ -62,6 +62,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.postsService.init(this.route.routeConfig.path);
     this.postsService.posts$
       .pipe(takeUntil(this.unsubscribe$))
