@@ -10,15 +10,13 @@ describe('CommentComponent', () => {
   let component: CommentComponent;
   let fixture: ComponentFixture<CommentComponent>;
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        imports: [CoreModule, SharedModule],
-        declarations: [CommentComponent],
-        providers: [PostsService]
-      }).compileComponents();
-    })
-  );
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [CoreModule, SharedModule],
+      declarations: [CommentComponent],
+      providers: [PostsService]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CommentComponent);

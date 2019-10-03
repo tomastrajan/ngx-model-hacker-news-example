@@ -15,23 +15,21 @@ describe('PostListComponent', () => {
   let component: PostListComponent;
   let fixture: ComponentFixture<PostListComponent>;
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          CoreModule,
-          SharedModule,
-          RouterTestingModule,
-          NoopAnimationsModule
-        ],
-        declarations: [PostListComponent, PostComponent, CommentComponent],
-        providers: [
-          PostsService,
-          { provide: ActivatedRoute, useValue: { routeConfig: {} } }
-        ]
-      }).compileComponents();
-    })
-  );
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        CoreModule,
+        SharedModule,
+        RouterTestingModule,
+        NoopAnimationsModule
+      ],
+      declarations: [PostListComponent, PostComponent, CommentComponent],
+      providers: [
+        PostsService,
+        { provide: ActivatedRoute, useValue: { routeConfig: {} } }
+      ]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PostListComponent);

@@ -136,7 +136,10 @@ export class PostsService {
       return;
     }
     this.getItems(source.kids)
-      .pipe(takeUntil(this.selectedPostChange$), delay(10))
+      .pipe(
+        takeUntil(this.selectedPostChange$),
+        delay(10)
+      )
       .subscribe((comment: Item) => {
         const data = this.model.get();
         const parentPostOrComment = this.findParent(data.items, comment.parent);
@@ -178,11 +181,10 @@ export class PostsService {
   private formatCommentQuotedText(text: string) {
     return text
       .split(/<p>/)
-      .map(
-        token =>
-          token.indexOf('&gt;') === 0
-            ? (token = `<blockquote>${token.replace('&gt;', '')}</blockquote>`)
-            : token
+      .map(token =>
+        token.indexOf('&gt;') === 0
+          ? (token = `<blockquote>${token.replace('&gt;', '')}</blockquote>`)
+          : token
       )
       .join('<p>');
   }

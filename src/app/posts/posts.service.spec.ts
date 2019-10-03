@@ -12,10 +12,7 @@ describe('PostsService', () => {
     });
   });
 
-  it(
-    'should be created',
-    inject([PostsService], (service: PostsService) => {
-      expect(service).toBeTruthy();
-    })
-  );
+  it('should be created', inject([PostsService], (service: PostsService) => {
+    expect(service).toBeTruthy();
+  }));
 });

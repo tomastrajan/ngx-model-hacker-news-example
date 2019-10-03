@@ -4,24 +4,47 @@ import {
   style,
   transition,
   trigger,
-  group
+  stagger,
+  keyframes
 } from '@angular/animations';
 
 export const listTransitions = trigger('listTransitions', [
-  transition('* <=> *', [
+  transition('* => *', [
+    // Initially the all rows are not visible
+    query(':enter', style({ opacity: 0 }), { optional: true }),
+
+    // Each row will appear sequentially with the delay of 300ms
     query(
-      '@listTransitions > :enter',
-      group([
-        style({ maxHeight: '0px', opacity: 0 }),
-        animate('0.5s ease-in-out', style({ maxHeight: '5000px', opacity: 1 }))
+      ':enter',
+      stagger('300ms', [
+        animate(
+          '.5s ease-in',
+          keyframes([
+            style({ opacity: 0, transform: 'translateY(-50%)', offset: 0 }),
+            style({
+              opacity: 0.5,
+              transform: 'translateY(-10px) scale(1.1)',
+              offset: 0.3
+            }),
+            style({ opacity: 1, transform: 'translateY(0)', offset: 1 })
+          ])
+        )
       ]),
       { optional: true }
     ),
+
+    // Rows will disappear sequentially with the delay of 300ms
     query(
-      '@listTransitions > :leave',
-      group([
-        style({ maxHeight: '5000px', opacity: 1 }),
-        animate('0.2s ease-in-out', style({ maxHeight: '0px', opacity: 0 }))
+      ':leave',
+      stagger('300ms', [
+        animate(
+          '500ms ease-out',
+          keyframes([
+            style({ opacity: 1, transform: 'scale(1.1)', offset: 0 }),
+            style({ opacity: 0.5, transform: 'scale(.5)', offset: 0.3 }),
+            style({ opacity: 0, transform: 'scale(0)', offset: 1 })
+          ])
+        )
       ]),
       { optional: true }
     )

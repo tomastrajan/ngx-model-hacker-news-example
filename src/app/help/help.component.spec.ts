@@ -8,14 +8,12 @@ describe('HelpComponent', () => {
   let component: HelpComponent;
   let fixture: ComponentFixture<HelpComponent>;
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        imports: [MatIconModule, MatTabsModule, NoopAnimationsModule],
-        declarations: [HelpComponent]
-      }).compileComponents();
-    })
-  );
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [MatIconModule, MatTabsModule, NoopAnimationsModule],
+      declarations: [HelpComponent]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HelpComponent);
