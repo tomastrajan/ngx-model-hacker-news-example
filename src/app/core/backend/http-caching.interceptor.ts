@@ -7,9 +7,9 @@ import {
   HttpResponse
 } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable';
-import { tap } from 'rxjs/operators/tap';
-import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs/internal/Observable';
+import { tap } from 'rxjs/internal/operators/tap';
+import { of } from 'rxjs/internal/observable/of';
 
 @Injectable()
 export class HttpCachingInterceptor implements HttpInterceptor {

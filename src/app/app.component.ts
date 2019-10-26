@@ -3,7 +3,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { ActivationEnd, Router } from '@angular/router';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Title } from '@angular/platform-browser';
-import { filter } from 'rxjs/operators/filter';
+import { filter } from 'rxjs/internal/operators/filter';
 
 import { BackendService } from '@app/core';
 import { environment as env } from '@env/environment';

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Model, ModelFactory } from 'ngx-model';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import { tap } from 'rxjs/operators/tap';
-import { from } from 'rxjs/observable/from';
-import { mergeMap } from 'rxjs/operators/mergeMap';
-import { takeUntil } from 'rxjs/operators/takeUntil';
-import { delay } from 'rxjs/operators/delay';
+import { Observable } from 'rxjs/internal/Observable';
+import { Subject } from 'rxjs/internal/Subject';
+import { tap } from 'rxjs/internal/operators/tap';
+import { from } from 'rxjs/internal/observable/from';
+import { mergeMap } from 'rxjs/internal/operators/mergeMap';
+import { takeUntil } from 'rxjs/internal/operators/takeUntil';
+import { delay } from 'rxjs/internal/operators/delay';
 
 import { BackendService, TimeService } from '@app/core';
 
