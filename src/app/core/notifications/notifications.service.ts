@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Model, ModelFactory } from 'ngx-model';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/internal/Observable';
 import { v4 as uuid } from 'uuid';
 
 @Injectable()

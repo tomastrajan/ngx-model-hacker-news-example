@@ -6,8 +6,8 @@ import {
   OnInit,
   ViewChildren
 } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
-import { takeUntil } from 'rxjs/operators/takeUntil';
+import { Subject } from 'rxjs/internal/Subject';
+import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 
 import { listTransitions } from '@app/core';
 

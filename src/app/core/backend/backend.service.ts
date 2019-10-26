@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Model, ModelFactory } from 'ngx-model';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-import { finalize } from 'rxjs/operators/finalize';
-import { delay } from 'rxjs/operators/delay';
-import { map } from 'rxjs/operators/map';
-import { filter } from 'rxjs/operators/filter';
-import { catchError } from 'rxjs/operators/catchError';
+import { Observable } from 'rxjs/internal/Observable';
+import { of } from 'rxjs/internal/observable/of';
+import { finalize } from 'rxjs/internal/operators/finalize';
+import { delay } from 'rxjs/internal/operators/delay';
+import { map } from 'rxjs/internal/operators/map';
+import { filter } from 'rxjs/internal/operators/filter';
+import { catchError } from 'rxjs/internal/operators/catchError';
 
 import { environment } from '@env/environment';
 
